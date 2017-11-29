@@ -19,10 +19,7 @@ namespace MobilReklame.Order
         // to do: more instance fields?
         // useless comment
 
-        public Customer()
-        {
-            // to do: make full constructor
-        }
+        // to do: make full constructor
 
         // to do: properties
 
