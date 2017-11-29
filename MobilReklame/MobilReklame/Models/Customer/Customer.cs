@@ -17,6 +17,7 @@ namespace MobilReklame.Order
         private string _contactEmail;
         private string _notes;
         // to do: more instance fields?
+        // useless comment
 
         public Customer()
         {
