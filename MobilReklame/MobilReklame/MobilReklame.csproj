@@ -95,7 +95,21 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="BaseClasses\CommandsBase\CommandBase.cs" />
+    <Compile Include="BaseClasses\CommandsBase\CreateCommandBase.cs" />
+    <Compile Include="BaseClasses\CommandsBase\DeleteCommandBase.cs" />
+    <Compile Include="BaseClasses\CommandsBase\EditCommandBase.cs" />
+    <Compile Include="BaseClasses\DomainBase\CatalogBase.cs" />
+    <Compile Include="BaseClasses\DomainBase\DomainBase.cs" />
+    <Compile Include="BaseClasses\Factories\VievModelFactoryBase.cs" />
+    <Compile Include="BaseClasses\ViewModelsBase\ItemViemModelBase.cs" />
+    <Compile Include="BaseClasses\ViewModelsBase\MasterDetailsViewModelBase.cs" />
+    <Compile Include="Models\Customer\Customer.cs" />
+    <Compile Include="Models\Customer\CustomerCatalog.cs" />
+    <Compile Include="Models\Order\OrderMaterials.cs" />
+    <Compile Include="Models\Order\Order.cs" />
+    <Compile Include="Models\Order\OrderCatalog.cs" />
+    <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -121,7 +135,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -130,6 +144,11 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.1</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\Commands\" />
+    <Folder Include="Controllers\ViewModels\" />
+    <Folder Include="ExternalTools\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
