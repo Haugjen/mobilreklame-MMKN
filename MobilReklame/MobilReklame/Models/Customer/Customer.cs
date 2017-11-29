@@ -16,8 +16,10 @@ namespace MobilReklame.Order
         private string _contactPhoneNumber;
         private string _contactEmail;
         private string _notes;
+
         // to do: more instance fields?
         // useless comment
+        // useless comment 2
 
         // to do: make full constructor
 
