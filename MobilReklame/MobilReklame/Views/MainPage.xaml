@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
          
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-            <Button x:Name="NewCase" Content="hallo" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="20,20,0,0" Grid.RowSpan="2" VerticalAlignment="Stretch" Height="auto" MinWidth="70" Width="auto"  MaxWidth="95"/>
+            <Button x:Name="NewCase" Content="hallo" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="20,20,0,0" Grid.RowSpan="2" VerticalAlignment="Stretch" Height="auto" MinWidth="70" MaxWidth="95"/>
             <Button x:Name="CustomerLibrary" Content="Button" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="20,20,0,0" Grid.RowSpan="2" VerticalAlignment="Stretch" MinWidth="70" Width="auto"  MaxWidth="95"/>
             <TextBox Grid.ColumnSpan="2" Margin="50,31,0,0" Grid.RowSpan="2" Text="Søg" VerticalAlignment="Top" Width="181" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
             <Button x:Name="Search" Content="Button" Grid.ColumnSpan="2" Margin="10,20,0,0" Grid.RowSpan="2" Height="30"  VerticalAlignment="Stretch" MinWidth="50" Width="auto"  MaxWidth="75"/>
