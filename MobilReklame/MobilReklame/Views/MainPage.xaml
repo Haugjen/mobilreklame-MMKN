@@ -58,7 +58,7 @@
                 <Button x:Name="Clear" Content="Clear" Margin="10,10,0,0" Height="32" VerticalAlignment="Stretch" MinWidth="85" Width="auto" HorizontalAlignment="Center"/>
             </StackPanel>
 
-            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="LightGray">
+            <StackPanel Grid.Column="2" Orientation="Horizontal" FlowDirection="RightToLeft" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="LightGray">
                 <StackPanel.Resources>
                     <Style TargetType="Button" x:Name="TabStyle2">
                         <Setter Property="Height" Value="auto"/>
