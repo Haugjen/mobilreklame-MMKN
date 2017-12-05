@@ -1,14 +1,12 @@
 ﻿<Page
-    x:Class="MobilReklame.CreateCase"
+    x:Class="MobilReklame.Views.BlankPage1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MobilReklame"
+    xmlns:local="using:MobilReklame.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    
-    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -21,6 +19,10 @@
             <RowDefinition Height="104*"/>
         </Grid.RowDefinitions>
 
+        
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Kunde information" FontSize="48"/>
+        
+            
         <Grid Grid.ColumnSpan="2" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="70*"/>
@@ -30,7 +32,7 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <Grid.Resources>
@@ -39,7 +41,7 @@
                     <Setter Property="Height" Value="40"/>
                     <Setter Property="VerticalAlignment" Value="Top"/>
                     <Setter Property="HorizontalAlignment" Value="Right"/>
-                    <Setter Property="Margin" Value="0,23,60,0"/>
+                    <Setter Property="Margin" Value="0,24,0,0"/>
                 </Style>
 
                 <Style TargetType="TextBox" x:Name="textboxes">
@@ -50,12 +52,12 @@
                     <Setter Property="Margin" Value="10,20,0,0"/>
                 </Style>
             </Grid.Resources>
+
             
-            
-            
+
             <StackPanel Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <TextBlock Style="{StaticResource textblocks}" Text="CVR."/>
-                <TextBlock Style="{StaticResource textblocks}" Text="Navn"/>
+                <TextBlock Style="{StaticResource textblocks}" Text="Firma navn"/>
                 <TextBlock Style="{StaticResource textblocks}" Text="Tlf nr."/>
                 <TextBlock Style="{StaticResource textblocks}" Text="E-mail"/>
                 <TextBlock Style="{StaticResource textblocks}" Text="Kontakt person"/>
@@ -63,19 +65,24 @@
                 <TextBlock Style="{StaticResource textblocks}" Text="Kontakt E-mail"/>
                 <TextBlock Style="{StaticResource textblocks}" Text="Noter"/>
             </StackPanel>
-            
+
             <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <TextBox Style="{StaticResource textboxes}"/>
-                <TextBox Style="{StaticResource textboxes}"/>
-                <TextBox Style="{StaticResource textboxes}"/>
-                <TextBox Style="{StaticResource textboxes}"/>
-                <TextBox Style="{StaticResource textboxes}"/>
-                <TextBox Style="{StaticResource textboxes}"/>
-                <TextBox Style="{StaticResource textboxes}"/>
-                <TextBox Style="{StaticResource textboxes}"/>
+                <TextBox Style="{StaticResource textboxes}" PlaceholderText="CVR." />
+                <TextBox Style="{StaticResource textboxes}" PlaceholderText="Navn"/>
+                <TextBox Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
+                <TextBox Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
+                <TextBox Style="{StaticResource textboxes}" PlaceholderText="Navn"/>
+                <TextBox Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
+                <TextBox Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
+                <TextBox Style="{StaticResource textboxes}" TextWrapping="Wrap" PlaceholderText="Noter" Height="250" Margin="10,20,0,20"/>
             </StackPanel>
         </Grid>
 
+        <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="1" Orientation="Horizontal">
+            <Button x:Name="Back" Width="120" Height="70" Content="Tilbage" Click="Back_Click" Margin="20,0,0,0"/>
+            <Button x:Name="Save" Width="120" Height="70" Content="Save" Margin="20,0,0,0"/>
+        </StackPanel>
+        
 
     </Grid>
 </Page>
