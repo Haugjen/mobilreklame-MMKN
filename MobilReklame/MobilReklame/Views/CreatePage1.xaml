@@ -46,9 +46,9 @@
 
                 <Style TargetType="TextBox" x:Name="textboxes">
                     <Setter Property="FontSize" Value="24"/>
-                    <Setter Property="Width" Value="400"/>
+                    <Setter Property="Width" Value="auto"/>
                     <Setter Property="VerticalAlignment" Value="top"/>
-                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
                     <Setter Property="Margin" Value="10,20,0,0"/>
                 </Style>
             </Grid.Resources>
@@ -74,7 +74,7 @@
                 <TextBox Style="{StaticResource textboxes}" PlaceholderText="Navn"/>
                 <TextBox Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
                 <TextBox Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
-                <TextBox Style="{StaticResource textboxes}" TextWrapping="Wrap" PlaceholderText="Noter" Height="250" Margin="10,20,0,20"/>
+                <TextBox Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" VerticalAlignment="Stretch"/>
             </StackPanel>
         </Grid>
 
