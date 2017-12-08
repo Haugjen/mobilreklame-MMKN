@@ -8,6 +8,7 @@ namespace MobilReklame.BaseClasses
 {
     public class EditCommandBase<TData, T, TKey> : CommandBase<TData, T, TKey>
         where TKey : IKey<TKey>
+        where TData : IKey<TKey>
         where T : TKey, new()
     {
         private CatalogBase<TData, T, TKey> _catalog;
@@ -24,7 +25,7 @@ namespace MobilReklame.BaseClasses
         public override void Execute()
         {
             // Update/edit
-            _catalog.Update();
+            _catalog.Update(_viewModel.DataPackage);
 
             // Set selection to null
             _viewModel.ItemViewModelSelected = null;

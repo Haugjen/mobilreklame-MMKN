@@ -15,7 +15,7 @@ namespace MobilReklame.BaseClasses
     /// this class, and call its constructor with a domain-specific 
     /// catalog object and a domain-specific factory object.
     /// </summary>
-    public abstract class MasterDetailsViewModelBase<TData,T, TKey> : INotifyPropertyChanged
+    public abstract class MasterDetailsViewModelBase<TData, T, TKey> : INotifyPropertyChanged
     where TKey : IKey<TKey>
     where T : TKey, new()
     {
@@ -43,6 +43,7 @@ namespace MobilReklame.BaseClasses
             _deleteCommand = new DeleteCommandBase<TData,T, TKey>(_catalog, this);
             _createCommand = new CreateCommandBase<TData,T, TKey>(_catalog, _dataPackage);
             //_editCommand = new EditCommandBase<TDomainClass, MasterDetailsViewModelBase<TDomainClass>>(_catalog, this);
+            
         }
         #endregion
 

@@ -26,8 +26,11 @@ namespace MobilReklame.BaseClasses
         {
             _data.Remove(key);
         }
-        public void Update(TData data){
-
+        public void Update(TData data)
+        {
+            T obj = _factory.Convert(data);
+            _data.Remove(obj.Key);
+            _data.Add(obj.Key, obj);
         }
     }
 }

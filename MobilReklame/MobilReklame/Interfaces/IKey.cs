@@ -2,6 +2,6 @@
 {
     public interface IKey<TKey>
     {
-        TKey Key { get; }
+        TKey Key { get; set; }
     }
 }
