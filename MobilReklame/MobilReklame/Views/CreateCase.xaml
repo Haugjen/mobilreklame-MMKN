@@ -21,6 +21,9 @@
             <RowDefinition Height="104*"/>
         </Grid.RowDefinitions>
 
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Kunde information" FontSize="32"/>
+        <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Sags Information" FontSize="32"/>
+
         <Grid Grid.ColumnSpan="2" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="70*"/>
@@ -30,7 +33,7 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <Grid.Resources>
@@ -47,7 +50,7 @@
                     <Setter Property="Width" Value="auto"/>
                     <Setter Property="VerticalAlignment" Value="top"/>
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
-                    <Setter Property="Margin" Value="10,20,20,0"/>
+                    <Setter Property="Margin" Value="10,20,40,0"/>
                 </Style>
             </Grid.Resources>
             
@@ -93,8 +96,23 @@
                 <TextBox Style="{StaticResource textboxes}"/>
                 <TextBox Style="{StaticResource textboxes}"/>
             </StackPanel>
+       
         </Grid>
 
-
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="Button" x:Name="button">
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="VerticalAlignment" Value="Stretch"/>
+                    <Setter Property="Height" Value="75"/>
+                    <Setter Property="Width" Value="150"/>
+                    <Setter Property="Margin" Value="10,20,10,20"/>
+                    <Setter Property="FontSize" Value="24"/>
+               </Style>
+            </StackPanel.Resources>
+            <Button Style="{StaticResource button}" Margin="500,10,10,10" Content="Gem"/>
+            <Button Style="{StaticResource button}" Content="Annuller"/>
+        </StackPanel>
     </Grid>
+    
 </Page>

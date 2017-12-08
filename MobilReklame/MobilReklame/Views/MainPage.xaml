@@ -46,8 +46,8 @@
                     </Style>
                 </StackPanel.Resources>
 
-                <Button x:Name="NewCase" Content="New Case" Style="{StaticResource TabStyle}" Margin="20,20,0,10" />
-                <Button x:Name="CustomerLibrary" Content="Customer" Style="{StaticResource TabStyle}" Margin="20,20,0,10"/>
+                <Button x:Name="NewCase" Content="New Case" Style="{StaticResource TabStyle}" Margin="20,20,0,10" Click="CaseCreation" />
+                <Button x:Name="CustomerLibrary" Content="Customer" Style="{StaticResource TabStyle}" Margin="20,20,0,10" Click="CustomerList"/>
                 <TextBox x:Name="SearchHere" Margin="20,10,0,0" Text="Søg" VerticalAlignment="Center" Width="181" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
                 <Button x:Name="Search" Content="S" Margin="0,10,0,0" Height="32"  VerticalAlignment="Stretch" Width="32" HorizontalAlignment="Center"/>
 
