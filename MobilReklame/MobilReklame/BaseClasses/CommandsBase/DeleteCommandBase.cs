@@ -7,25 +7,21 @@ using System.Windows.Input;
 
 namespace MobilReklame.BaseClasses
 {
-public class DeleteCommandBase<TDomainClass, TViewModel> : CommandBase<TDomainClass>
-        where TViewModel : MasterDetailsViewModelBase<TDomainClass>
-        where TDomainClass :  DomainBase, new()
+public class DeleteCommandBase<TData, T, TKey> : CommandBase<TData, T, TKey>
+        where TKey : IKey<TKey>
+        where T : TKey, new()
     {
-        private CatalogBase<TDomainClass> _catalog;
-        private TViewModel _viewModel;
-
-        public DeleteCommandBase(CatalogBase<TDomainClass> catalog, TViewModel viewModel)
-        : base(viewModel)
+        private CatalogBase<TData, T, TKey> _catalog;
+        protected MasterDetailsViewModelBase<TData, T, TKey> _viewModel;
+        public DeleteCommandBase(CatalogBase<TData, T, TKey> catalog, MasterDetailsViewModelBase<TData, T, TKey> viewModel)
         {
             _catalog = catalog;
             _viewModel = viewModel;
         }
-
         public override bool CanExecute()
         {
             return _viewModel.ItemViewModelSelected != null;
         }
-
         public override void Execute()
         {
             // Delete from catalog

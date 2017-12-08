@@ -15,15 +15,17 @@ namespace MobilReklame.BaseClasses
     /// this class, and call its constructor with a domain-specific 
     /// catalog object and a domain-specific factory object.
     /// </summary>
-    public abstract class MasterDetailsViewModelBase<TDomainClass> : INotifyPropertyChanged
-        where TDomainClass : DomainBase, new()
+    public abstract class MasterDetailsViewModelBase<TData,T, TKey> : INotifyPropertyChanged
+    where TKey : IKey<TKey>
+    where T : TKey, new()
     {
         #region Instance fields
-        private CatalogBase<TDomainClass> _catalog;
-        private ViewModelFactoryBase<TDomainClass> _factory;
-        private ItemViewModelBase<TDomainClass> _itemViewModelSelected;
-        private DeleteCommandBase<TDomainClass, MasterDetailsViewModelBase<TDomainClass>> _deleteCommand;
-        //private CreateCommandBase<TDomainClass, MasterDetailsViewModelBase<TDomainClass>> _createCommand;
+        private CatalogBase<TData, T, TKey> _catalog;
+        private ViewModelFactoryBase<TData, T, TKey> _factory;
+        private ItemViewModelBase<TKey> _itemViewModelSelected;
+        private TData _dataPackage;
+        private DeleteCommandBase<TData,T, TKey> _deleteCommand;
+        private CreateCommandBase<TData,T, TKey> _createCommand;
         #endregion
 
         #region Constructor
@@ -32,14 +34,14 @@ namespace MobilReklame.BaseClasses
         /// references to a catalog object and a factory object
         /// </summary>
         protected MasterDetailsViewModelBase(
-            CatalogBase<TDomainClass> catalog,
-            ViewModelFactoryBase<TDomainClass> factory)
+            CatalogBase<TData, T, TKey> catalog,
+            ViewModelFactoryBase<TData, T, TKey> factory)
         {
             _catalog = catalog;
             _factory = factory;
             _itemViewModelSelected = null;
-            _deleteCommand = new DeleteCommandBase<TDomainClass, MasterDetailsViewModelBase<TDomainClass>>(_catalog, this);
-            //_createCommand = new CreateCommandBase<TDomainClass, MasterDetailsViewModelBase<TDomainClass>>(_catalog, this);
+            _deleteCommand = new DeleteCommandBase<TData,T, TKey>(_catalog, this);
+            _createCommand = new CreateCommandBase<TData,T, TKey>(_catalog, _dataPackage);
             //_editCommand = new EditCommandBase<TDomainClass, MasterDetailsViewModelBase<TDomainClass>>(_catalog, this);
         }
         #endregion
@@ -53,34 +55,36 @@ namespace MobilReklame.BaseClasses
         {
             get { return _deleteCommand; }
         }
-        
-        //public ICommand CreateCommand
-        //{
-        //    get { return _createCommand; }
-        //}
-
+        public ICommand CreateCommand
+        {
+            get { return _createCommand; }
+        }
         /// <summary>
         /// Get a collection of item view models.
         /// The view can bind to this property
         /// </summary>
-        public List<ItemViewModelBase<TDomainClass>> ItemViewModelCollection
+        public List<ItemViewModelBase<TKey>> ItemViewModelCollection
         {
             get { return _factory.GetItemViewModelCollection(_catalog); }
         }
-
         /// <summary>
         /// The item view model currently selected.
         /// The view can bind to this property
         /// </summary>
-        public ItemViewModelBase<TDomainClass> ItemViewModelSelected
+        public ItemViewModelBase<TKey> ItemViewModelSelected
         {
             get { return _itemViewModelSelected; }
             set
             {
                 _itemViewModelSelected = value;
-                _deleteCommand.RaiseCanExecuteChanged();
+                //_deleteCommand.RaiseCanExecuteChanged();
                 OnPropertyChanged();
             }
+        }
+
+        public TData DataPackage {
+            get => _dataPackage;
+            set => value = _dataPackage;
         }
         #endregion
 
@@ -93,7 +97,6 @@ namespace MobilReklame.BaseClasses
 
         #region OnPropertyChanged code
         public event PropertyChangedEventHandler PropertyChanged;
-
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

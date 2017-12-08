@@ -10,23 +10,22 @@ namespace MobilReklame.BaseClasses
     /// A domain-specific item view model class 
     /// must inherit from this class
     /// </summary>
-    /// <typeparam name="TDomainClass">Type of domain class</typeparam>
-    public abstract class ItemViewModelBase<TDomainClass>
-        where TDomainClass : class
+    /// <typeparam name="TKey">Type of domain class</typeparam>
+    public abstract class ItemViewModelBase<TKey>
+        where  TKey : IKey<TKey>
     {
         /// <summary>
         /// A derived class must call this constructor
         /// </summary>
         /// <param name="obj">Enclosed domain object</param>
-        protected ItemViewModelBase(TDomainClass obj)
+        protected ItemViewModelBase(TKey obj)
         {
             DomainObject = obj;
         }
-
         /// <summary>
         /// The domain object enclosed by the
         /// item view model object
         /// </summary>
-        public TDomainClass DomainObject;
+        public TKey DomainObject;
     }
 }

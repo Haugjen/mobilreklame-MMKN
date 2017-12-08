@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace MobilReklame.BaseClasses
 {
-    public class EditCommandBase<TDomainClass, TViewModel> : CommandBase<TDomainClass>
-        where TViewModel : MasterDetailsViewModelBase<TDomainClass>
-        where TDomainClass :  DomainBase, new()
+    public class EditCommandBase<TData, T, TKey> : CommandBase<TData, T, TKey>
+        where TKey : IKey<TKey>
+        where T : TKey, new()
     {
-        private CatalogBase<TDomainClass> _catalog;
-        private TViewModel _viewModel;
-        public EditCommandBase(CatalogBase<TDomainClass> catalog, TViewModel viewModel)
-        : base(viewModel)
+        private CatalogBase<TData, T, TKey> _catalog;
+        protected MasterDetailsViewModelBase<TData, T, TKey> _viewModel;
+        public EditCommandBase(CatalogBase<TData, T, TKey> catalog, MasterDetailsViewModelBase<TData, T, TKey> viewModel)
         {
             _catalog = catalog;
             _viewModel = viewModel;
@@ -22,11 +21,10 @@ namespace MobilReklame.BaseClasses
         {
             return _viewModel.ItemViewModelSelected != null;
         }
-
         public override void Execute()
         {
-            // Edit object information
-            
+            // Update/edit
+            _catalog.Update();
 
             // Set selection to null
             _viewModel.ItemViewModelSelected = null;

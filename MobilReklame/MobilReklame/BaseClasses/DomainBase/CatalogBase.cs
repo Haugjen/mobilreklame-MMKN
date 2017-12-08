@@ -6,64 +6,28 @@ using System.Threading.Tasks;
 
 namespace MobilReklame.BaseClasses
 {
- /// <summary>
-    /// This class can be used as a base class for a 
-    /// catalog class for domain objects
-    /// </summary>
-    /// <typeparam name="TDomainClass">Type of domain object (e.g. Student)</typeparam>
-    public abstract class CatalogBase<TDomainClass>
-        where TDomainClass : DomainBase
+    public abstract class CatalogBase<TData, T, TKey> : ICRUD<TData, TKey>
+        where T : IKey<TKey>
     {
-        /// <summary>
-        /// Keep track of keys for objects
-        /// </summary>
-        private static int _keyCount = 1;
-
-        /// <summary>
-        /// Uses a Dictionary to store domain objects,
-        /// so they can be looked up using a key value
-        /// </summary>
-        private Dictionary<int, TDomainClass> _items;
-
-        #region Constructor
-        protected CatalogBase()
+        private Dictionary<TKey, T> _data;
+        private IFactory<T, TData> _factory;
+        protected CatalogBase(IFactory<T, TData> factory)
         {
-            _items = new Dictionary<int, TDomainClass>();
+            _data = new Dictionary<TKey, T>();
+            _factory = factory;
         }
-        #endregion
-
-        #region Properties
-        /// <summary>
-        /// Returns all domain objects in a List
-        /// </summary>
-        public List<TDomainClass> All
+        public List<T> All => _data.Values.ToList();
+        public void Create(TData data)
         {
-            get { return _items.Values.ToList(); }
+            T obj = _factory.Convert(data);
+            _data.Add(obj.Key, obj);
         }
-        #endregion
-
-        #region Methods
-        /// <summary>
-        /// Adds a single domain object to the collection
-        /// </summary>
-        /// <param name="obj">The domain object to add</param>
-        public void Add(TViewModelObj obj)
+        public void Delete(TKey key)
         {
-            
-            obj.Key = _keyCount++;
-            _items.Add(obj.Key, obj);
+            _data.Remove(key);
         }
+        public void Update(TData data){
 
-        /// <summary>
-        /// Deletes a single domain object from the catalog,
-        /// given its key
-        /// </summary>
-        /// <param name="key">Key for domain object to delete</param>
-        /// <returns></returns>
-        public bool Delete(int key)
-        {
-            return _items.Remove(key);
         }
-        #endregion
     }
 }

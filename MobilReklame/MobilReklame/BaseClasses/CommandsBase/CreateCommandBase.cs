@@ -6,37 +6,26 @@ using System.Threading.Tasks;
 
 namespace MobilReklame.BaseClasses
 {
-public class CreateCommandBase<TDomainClass, TViewModel, TViewModelObj> : CommandBase<TDomainClass>
-        where TViewModel : MasterDetailsViewModelBase<TDomainClass>
-        where TDomainClass :  DomainBase, new()
+public class CreateCommandBase<TData, T, TKey> : CommandBase<TData, T, TKey>
+        where TKey : IKey<TKey>
+        where T : TKey, new()
     {
-        private CatalogBase<TDomainClass> _catalog;
-        private TViewModel _viewModel;
-        private TDomainClass _domainObj;
-
-        private TViewModelObj _viewModelObj;
-
-        public CreateCommandBase(CatalogBase<TDomainClass> catalog, TViewModel viewModel ,TViewModelObj viewModelObject)
-        : base(viewModel)
+        private CatalogBase<TData, T, TKey> _catalog;
+        private TData _TDTO;
+        public CreateCommandBase(CatalogBase<TData, T, TKey> catalog, TData TDTO)
         {
             _catalog = catalog;
-            _viewModelObj = viewModelObject;
-            
+            _TDTO = TDTO;
         }
-
         public override bool CanExecute()
         {
-            //Temp
+            //Maybe add a condition later...
             return true;
         }
-
         public override void Execute()
         {
             // Add to catalog
-            _catalog.Add(_viewModelObj);
-
-            // Refresh the item list
-            _viewModel.RefreshItemViewModelCollection();
+            _catalog.Create(_TDTO);
         }
     }
 }
