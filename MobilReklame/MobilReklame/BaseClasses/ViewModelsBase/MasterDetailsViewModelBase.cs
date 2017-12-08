@@ -17,6 +17,7 @@ namespace MobilReklame.BaseClasses
     /// </summary>
     public abstract class MasterDetailsViewModelBase<TData, T, TKey> : INotifyPropertyChanged
     where TKey : IKey<TKey>
+    where TData : IKey<TKey>
     where T : TKey, new()
     {
         #region Instance fields
@@ -24,8 +25,9 @@ namespace MobilReklame.BaseClasses
         private ViewModelFactoryBase<TData, T, TKey> _factory;
         private ItemViewModelBase<TKey> _itemViewModelSelected;
         private TData _dataPackage;
-        private DeleteCommandBase<TData,T, TKey> _deleteCommand;
-        private CreateCommandBase<TData,T, TKey> _createCommand;
+        private DeleteCommandBase<TData, T, TKey> _deleteCommand;
+        private CreateCommandBase<TData, T, TKey> _createCommand;
+        private EditCommandBase<TData, T, TKey> _editCommand;
         #endregion
 
         #region Constructor
@@ -40,18 +42,15 @@ namespace MobilReklame.BaseClasses
             _catalog = catalog;
             _factory = factory;
             _itemViewModelSelected = null;
-            _deleteCommand = new DeleteCommandBase<TData,T, TKey>(_catalog, this);
-            _createCommand = new CreateCommandBase<TData,T, TKey>(_catalog, _dataPackage);
-            //_editCommand = new EditCommandBase<TDomainClass, MasterDetailsViewModelBase<TDomainClass>>(_catalog, this);
+            _deleteCommand = new DeleteCommandBase<TData, T, TKey>(_catalog, this);
+            _createCommand = new CreateCommandBase<TData, T, TKey>(_catalog, _dataPackage);
+            _editCommand = new EditCommandBase<TData, T, TKey>(_catalog, this);
             
         }
         #endregion
 
         #region Properties for Data Binding
-        /// <summary>
-        /// Deletion command property. The view can bind 
-        /// to this property.
-        /// </summary>
+        #region Commands
         public ICommand DeletionCommand
         {
             get { return _deleteCommand; }
@@ -60,29 +59,27 @@ namespace MobilReklame.BaseClasses
         {
             get { return _createCommand; }
         }
-        /// <summary>
-        /// Get a collection of item view models.
-        /// The view can bind to this property
-        /// </summary>
+        public ICommand EditCommand
+        {
+            get{ return _editCommand; }
+        }
+        #endregion
         public List<ItemViewModelBase<TKey>> ItemViewModelCollection
         {
             get { return _factory.GetItemViewModelCollection(_catalog); }
         }
-        /// <summary>
-        /// The item view model currently selected.
-        /// The view can bind to this property
-        /// </summary>
+  
         public ItemViewModelBase<TKey> ItemViewModelSelected
         {
             get { return _itemViewModelSelected; }
             set
             {
                 _itemViewModelSelected = value;
-                //_deleteCommand.RaiseCanExecuteChanged();
+                _deleteCommand.RaiseCanExecuteChanged();
+                _editCommand.RaiseCanExecuteChanged();
                 OnPropertyChanged();
             }
         }
-
         public TData DataPackage {
             get => _dataPackage;
             set => value = _dataPackage;
@@ -95,7 +92,6 @@ namespace MobilReklame.BaseClasses
             OnPropertyChanged(nameof(ItemViewModelCollection));
         }
         #endregion
-
         #region OnPropertyChanged code
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

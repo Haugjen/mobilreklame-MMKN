@@ -9,6 +9,7 @@ namespace MobilReklame.BaseClasses
 {
 public class DeleteCommandBase<TData, T, TKey> : CommandBase<TData, T, TKey>
         where TKey : IKey<TKey>
+        where TData : IKey<TKey>
         where T : TKey, new()
     {
         private CatalogBase<TData, T, TKey> _catalog;
