@@ -26,10 +26,5 @@ namespace MobilReklame
         {
             this.InitializeComponent();
         }
-
-        private void NewPage(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Views.BlankPage1), null);
-        }
     }
 }
