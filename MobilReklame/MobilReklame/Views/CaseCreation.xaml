@@ -67,32 +67,32 @@
 
             <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-                <TextBox Style="{StaticResource textboxes}" PlaceholderText="CVR." />
-                <TextBox Style="{StaticResource textboxes}" PlaceholderText="Navn"/>
-                <TextBox Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
-                <TextBox Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
-                <TextBox Style="{StaticResource textboxes}" PlaceholderText="Navn"/>
-                <TextBox Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
-                <TextBox Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
-                <TextBox Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
+                <TextBox x:Name="CVR_" Style="{StaticResource textboxes}" PlaceholderText="CVR." />
+                <TextBox x:Name="CompanyName" Style="{StaticResource textboxes}" PlaceholderText="Navn"/>
+                <TextBox x:Name="Tlf_nr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
+                <TextBox x:Name="E_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
+                <TextBox x:Name="ContactPerson" Style="{StaticResource textboxes}" PlaceholderText="Navn"/>
+                <TextBox x:Name="ContactPhoneNr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
+                <TextBox x:Name="ContactE_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
+                <TextBox x:Name="Notes" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
             </StackPanel>
 
             <StackPanel Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <TextBlock Style="{StaticResource textblocks}" Text="CVR."/>
-                <TextBlock Style="{StaticResource textblocks}" Text="Firma navn"/>
-                <TextBlock Style="{StaticResource textblocks}" Text="Tlf nr."/>
-                <TextBlock Style="{StaticResource textblocks}" Text="E-mail"/>
-                <TextBlock Style="{StaticResource textblocks}" Text="Kontakt person"/>
-                <TextBlock Style="{StaticResource textblocks}" Text="Kontakt tlf nr."/>
+                <TextBlock Style="{StaticResource textblocks}" Text="Ordre Nummer"/>
+                <TextBlock Style="{StaticResource textblocks}" Text="Start Dato"/>
+                <TextBlock Style="{StaticResource textblocks}" Text="Slut Dato"/>
+                <TextBlock Style="{StaticResource textblocks}" Text="Forbundet Kunde"/>
+                <TextBlock Style="{StaticResource textblocks}" Text="Opgave Beskrivelse"/>
+                <TextBlock Style="{StaticResource textblocks}" Text="Opgave Materialer" Margin="0,70,20,0"/>
             </StackPanel>
 
             <StackPanel Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <TextBox Style="{StaticResource textboxes}"/>
+                <TextBox x:Name="OrderNumber" Style="{StaticResource textboxes}"/>
                 <DatePicker x:Name="start" DayFormat="day" MonthFormat="month.numeric" YearFormat="year.abbreviated" HorizontalAlignment="Left" Margin="10,25,10,5"/>
                 <DatePicker x:Name="End" DayFormat="day" MonthFormat="month.numeric" YearFormat="year.abbreviated" HorizontalAlignment="Left" Margin="10,25,10,5"/>
-                <TextBox Style="{StaticResource textboxes}"/>
-                <TextBox Style="{StaticResource textboxes}"/>
-                <TextBox Style="{StaticResource textboxes}"/>
+                <TextBox x:Name="CaseDescription" Style="{StaticResource textboxes}"/>
+                <TextBox x:Name="CaseMaterials" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
+                <TextBox x:Name="OrderCustomer" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
             </StackPanel>
 
         </Grid>
@@ -107,8 +107,8 @@
                     <Setter Property="Margin" Value="10,20,10,20"/>
                 </Style>
             </StackPanel.Resources>
-            <Button Style="{StaticResource button}" Margin="50,20,10,20" Content="Annuller"/>
-            <Button Style="{StaticResource button}" Content="Gem"/>
+            <Button x:Name="Cancel" Style="{StaticResource button}" Margin="50,20,10,20" Content="Annuller" Click="MainPage"/>
+            <Button x:Name="Save" Style="{StaticResource button}" Content="Gem"/>
         </StackPanel>
     </Grid>
 

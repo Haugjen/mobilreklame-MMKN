@@ -19,6 +19,63 @@
             <RowDefinition Height="104*"/>
         </Grid.RowDefinitions>
 
+        <ScrollViewer Grid.Column="1" Grid.Row="1" HorizontalScrollBarVisibility="Visible">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="793*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.Resources>
+                    <Style TargetType="TextBlock" x:Name="textblocks">
+                        <Setter Property="FontSize" Value="24"/>
+                        <Setter Property="Height" Value="40"/>
+                        <Setter Property="VerticalAlignment" Value="Top"/>
+                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                        <Setter Property="Margin" Value="0,24,20,0"/>
+                    </Style>
+
+                    <Style TargetType="TextBox" x:Name="textboxes">
+                        <Setter Property="FontSize" Value="24"/>
+                        <Setter Property="Width" Value="auto"/>
+                        <Setter Property="VerticalAlignment" Value="top"/>
+                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                        <Setter Property="Margin" Value="10,20,40,0"/>
+                        <Setter Property="IsEnabled" Value="False"/>
+                    </Style>
+                </Grid.Resources>
+
+                <StackPanel Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <TextBlock Style="{StaticResource textblocks}"/>
+
+                    <TextBlock Style="{StaticResource textblocks}" Text="CVR."/>
+                    <TextBlock Style="{StaticResource textblocks}" Text="Firma navn"/>
+                    <TextBlock Style="{StaticResource textblocks}" Text="Tlf nr."/>
+                    <TextBlock Style="{StaticResource textblocks}" Text="E-mail"/>
+                    <TextBlock Style="{StaticResource textblocks}" Text="Kontakt person"/>
+                    <TextBlock Style="{StaticResource textblocks}" Text="Kontakt tlf nr."/>
+                    <TextBlock Style="{StaticResource textblocks}" Text="Kontakt E-mail"/>
+                    <TextBlock Style="{StaticResource textblocks}" Text="Noter"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <TextBlock Style="{StaticResource textblocks}" Text="Kunde information" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28"/>
+
+                    <TextBox x:Name="CVR_" Style="{StaticResource textboxes}" PlaceholderText="CVR." />
+                    <TextBox x:Name="CompanyName" Style="{StaticResource textboxes}" PlaceholderText="Navn"/>
+                    <TextBox x:Name="Tlf_nr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
+                    <TextBox x:Name="E_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
+                    <TextBox x:Name="ContactPerson" Style="{StaticResource textboxes}" PlaceholderText="Navn"/>
+                    <TextBox x:Name="ContactPhoneNr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
+                    <TextBox x:Name="ContactE_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
+                    <TextBox x:Name="Notes" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="LightGray">
             <StackPanel.Resources>
@@ -31,14 +88,14 @@
                     <Setter Property="Margin" Value="10,20,0,0"/>
                 </Style>
             </StackPanel.Resources>
-            <Button x:Name="NewCase" Content="Ny sag" Style="{StaticResource TabStyle}" Margin="20,20,0,10"/>
-            <Button x:Name="CaseLibrary" Content="Sager" Style="{StaticResource TabStyle}" Margin="20,20,0,10"/>
-            <TextBox x:Name="SearchHere" Margin="20,10,0,0" Text="Søg" VerticalAlignment="Center" Width="181" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+            <Button x:Name="NewCase" Content="Ny sag" Style="{StaticResource TabStyle}" Margin="20,20,0,10" Click="CaseCreation"/>
+            <Button x:Name="CaseLiburary" Content="Sager" Style="{StaticResource TabStyle}" Margin="20,20,0,10" Click="MainPage"/>
+            <TextBox x:Name="SearchHere" Margin="20,10,0,0" PlaceholderText="Søg" VerticalAlignment="Center" Width="181" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
             <Button x:Name="Search" Content="S" Margin="0,10,0,0" Height="32"  VerticalAlignment="Stretch" Width="32" HorizontalAlignment="Center"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="LightGray">
-            <ComboBox x:Name="SearchCatagory" HorizontalAlignment="Center" Margin="100,10,0,0" VerticalAlignment="center" Width="240" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+            <ComboBox x:Name="SearchCatagory" PlaceholderText="Sortering" HorizontalAlignment="Center" Margin="100,10,0,0" VerticalAlignment="center" Width="240" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
             <Button x:Name="Clear" Content="Clear" Margin="10,10,0,0" Height="32" VerticalAlignment="Stretch" MinWidth="85" Width="auto" HorizontalAlignment="Center"/>
         </StackPanel>
 

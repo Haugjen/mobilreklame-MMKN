@@ -26,5 +26,15 @@ namespace MobilReklame.Views
         {
             this.InitializeComponent();
         }
+
+        private void CaseCreation(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Views.CaseCreation), null);
+        }
+
+        private void MainPage(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage), null);
+        }
     }
 }
