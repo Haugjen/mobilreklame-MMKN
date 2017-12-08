@@ -17,7 +17,11 @@ namespace MobilReklame.Order
         private string _contactEmail;
         private string _notes;
 
-        public string Key => _cvrNumber;
+        public string Key
+        {
+            get => _cvrNumber;
+            set => _cvrNumber = value;  //github not getting this?
+        }
 
         // to do: more instance fields?
         // useless comment
