@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -52,8 +52,6 @@
                 </Style>
             </Grid.Resources>
 
-
-
             <StackPanel Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <TextBlock Style="{StaticResource textblocks}" Text="CVR."/>
                 <TextBlock Style="{StaticResource textblocks}" Text="Firma navn"/>
@@ -94,7 +92,6 @@
                 <TextBox x:Name="CaseMaterials" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
                 <TextBox x:Name="OrderCustomer" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
             </StackPanel>
-
         </Grid>
 
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
