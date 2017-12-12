@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace MobilReklame
 {
-    public class CustomerMDVM : MasterDetailsViewModelBase<Customer, int>
+    public class CustomerMDVM : MasterDetailsViewModelBase<CustomerTDTO, Customer, int>
     {
+        protected CustomerMDVM(CatalogBase<CustomerTDTO, Customer, int> catalog, ViewModelFactoryBase<CustomerTDTO, Customer, int> factory) : base(catalog, factory)
+        {
+        }
     }
 }

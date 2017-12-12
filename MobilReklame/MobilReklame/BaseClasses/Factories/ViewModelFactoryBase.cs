@@ -4,8 +4,7 @@ using System.Linq;
     namespace MobilReklame
     {
         public abstract class ViewModelFactoryBase<TData, T, TKey>
-        where TKey : IKey<TKey>
-        where T : TKey
+        where T : IKey<TKey>
         {
             public abstract ItemViewModelBase<T,TKey> CreateItemViewModel(T obj);
             public List<ItemViewModelBase<T, TKey>> GetItemViewModelCollection(CatalogBase<TData, T, TKey> catalog)
