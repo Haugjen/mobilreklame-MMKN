@@ -6,22 +6,23 @@ using System.Threading.Tasks;
 
 namespace MobilReklame.Order
 {
-    class Customer : IKey<string>
+    class Customer : IKey<int>
     {
         #region Instance field
         private string _customerName;
-        private string _phoneNumber;
-        private string _cvrNumber;
+        private int _phoneNumber;
+        private int _cvrNumber;
         private string _email;
         private string _contactName;
-        private string _contactPhoneNumber;
+        private int _contactPhoneNumber;
         private string _contactEmail;
         private string _notes;
+        private int _customerNumber;
         #endregion
 
         #region Constructor
-        public Customer(string customerName, string phoneNumber, int cvrNumber, string email, string contactName,
-            string contactPhoneNumber, string contactEmail, string notes)
+        public Customer(string customerName, int phoneNumber, int cvrNumber, string email, string contactName,
+            int contactPhoneNumber, string contactEmail, string notes, int customerNumber)
         {
             _customerName = customerName;
             _phoneNumber = phoneNumber;
@@ -31,16 +32,17 @@ namespace MobilReklame.Order
             _contactPhoneNumber = contactPhoneNumber;
             _contactEmail = contactEmail;
             _notes = notes;
+            _customerNumber = customerNumber;
         }
         #endregion
 
         #region Properties
         public string CustomerName => _customerName;
-        public string PhoneNumber => _phoneNumber;
+        public int PhoneNumber => _phoneNumber;
         public int CvrNumber => _cvrNumber;
         public string Email => _email;
         public string ContactName => _contactName;
-        public string ContactPhoneNumber => _contactPhoneNumber;
+        public int ContactPhoneNumber => _contactPhoneNumber;
         public string ContactEmail => _contactEmail;
         public string Notes => _notes;
         #endregion
@@ -51,10 +53,10 @@ namespace MobilReklame.Order
 
         #endregion
 
-        public string Key
+        public int Key
         {
-            get => _cvrNumber;
-            set => _cvrNumber = value;  //github not getting this?
+            get => _customerNumber;
+            set => _customerNumber = value;  //github not getting this?
         }
 
         // to do: more instance fields?
