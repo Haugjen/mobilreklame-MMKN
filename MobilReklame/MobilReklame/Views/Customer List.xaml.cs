@@ -13,16 +13,16 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace MobilReklame
+namespace MobilReklame.Views
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class Customer_List : Page
     {
-        public MainPage()
+        public Customer_List()
         {
             this.InitializeComponent();
         }
@@ -32,9 +32,9 @@ namespace MobilReklame
             this.Frame.Navigate(typeof(Views.CaseCreation), null);
         }
 
-        private void CustomerList(object sender, RoutedEventArgs e)
+        private void MainPage(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Views.Customer_List), null);
+            this.Frame.Navigate(typeof(MainPage), null);
         }
     }
 }

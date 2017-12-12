@@ -100,15 +100,23 @@
     <Compile Include="BaseClasses\CommandsBase\DeleteCommandBase.cs" />
     <Compile Include="BaseClasses\CommandsBase\EditCommandBase.cs" />
     <Compile Include="BaseClasses\DomainBase\CatalogBase.cs" />
-    <Compile Include="BaseClasses\DomainBase\DomainBase.cs" />
-    <Compile Include="BaseClasses\Factories\VievModelFactoryBase.cs" />
+    <Compile Include="BaseClasses\Factories\ViewModelFactoryBase.cs" />
     <Compile Include="BaseClasses\ViewModelsBase\ItemViemModelBase.cs" />
     <Compile Include="BaseClasses\ViewModelsBase\MasterDetailsViewModelBase.cs" />
+    <Compile Include="Interfaces\ICRUD.cs" />
+    <Compile Include="Interfaces\IFactory.cs" />
+    <Compile Include="Interfaces\IKey.cs" />
     <Compile Include="Models\Customer\Customer.cs" />
     <Compile Include="Models\Customer\CustomerCatalog.cs" />
     <Compile Include="Models\Order\OrderMaterials.cs" />
     <Compile Include="Models\Order\Order.cs" />
     <Compile Include="Models\Order\OrderCatalog.cs" />
+    <Compile Include="Views\CaseCreation.xaml.cs">
+      <DependentUpon>CaseCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer List.xaml.cs">
+      <DependentUpon>Customer List.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -135,6 +143,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\CaseCreation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Customer List.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
