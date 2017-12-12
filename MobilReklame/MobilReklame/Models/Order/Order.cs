@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MobilReklame.Models;
 
-namespace MobilReklame.Customer
+namespace MobilReklame.Order
 {
     class Order
     {
