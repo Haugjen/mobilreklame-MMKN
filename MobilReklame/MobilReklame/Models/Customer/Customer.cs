@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MobilReklame.Order
+namespace MobilReklame
 {
-    class Customer : IKey<int>
+    public class Customer : IKey<int>
     {
         #region Instance field
         private string _customerName;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MobilReklame.BaseClasses
+namespace MobilReklame
 {
     public abstract class CatalogBase<TData, T, TKey> : ICRUD<TData, TKey>
         where T : IKey<TKey>

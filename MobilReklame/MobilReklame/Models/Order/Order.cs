@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MobilReklame.Models;
+// using MobilReklame.Models;
 
-namespace MobilReklame.Order
+namespace MobilReklame
 {
-    class Order
+    public class Order : IKey<int>
     {
         #region Enumeration
         public enum OrderStatus { Request, Offer, AktiveStatus, Finished, Invoiced, AktiveRed1, ActiveRed2, ActiveYellow, ActiveGreen }
         #endregion
 
         #region Instance field
-        private string _orderNumber;
+        private int _orderNumber;
         private string _startupDate;
         private string _deadlineDate;
         private string _workDescription;
@@ -27,9 +27,8 @@ namespace MobilReklame.Order
         #endregion
 
         #region Constructor
-        public Order(string orderNumber, string startupDate, string deadlineDate, string workDescription, OrderMaterials orderMaterials, Customer orderCustomer)
+        public Order(string startupDate, string deadlineDate, string workDescription, OrderMaterials orderMaterials, Customer orderCustomer)
         {
-            _orderNumber = orderNumber;
             _startupDate = startupDate;
             _deadlineDate = deadlineDate;
             _workDescription = workDescription;
@@ -46,7 +45,7 @@ namespace MobilReklame.Order
         #endregion
 
         #region Properties
-        public string OrderNumber => _orderNumber;
+        public int OrderNumber => _orderNumber;
         public string StartupDate => _startupDate;
         public string DeadlineDate => _deadlineDate;
         public string WorkDescription => _workDescription;
@@ -62,6 +61,8 @@ namespace MobilReklame.Order
                 return $"{_orderStatus}";
             }
         }
+
+        public int Key { get => _orderNumber; set => value = _orderNumber;}
         #endregion
 
         #region Methods
