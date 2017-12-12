@@ -34,7 +34,7 @@ namespace MobilReklame
             _notes = notes;
             _customerNumber = customerNumber;
         }
-        #endregion
+        #endregion 
 
         #region Properties
         public string CustomerName => _customerName;
