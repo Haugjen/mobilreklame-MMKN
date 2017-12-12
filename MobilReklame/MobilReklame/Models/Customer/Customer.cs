@@ -21,19 +21,7 @@ namespace MobilReklame
         #endregion
 
         #region Constructor
-        public Customer(string customerName, int phoneNumber, int cvrNumber, string email, string contactName,
-            int contactPhoneNumber, string contactEmail, string notes, int customerNumber)
-        {
-            _customerName = customerName;
-            _phoneNumber = phoneNumber;
-            _cvrNumber = cvrNumber;
-            _email = email;
-            _contactName = contactName;
-            _contactPhoneNumber = contactPhoneNumber;
-            _contactEmail = contactEmail;
-            _notes = notes;
-            _customerNumber = customerNumber;
-        }
+        public Customer() { }
         #endregion 
 
         #region Properties
