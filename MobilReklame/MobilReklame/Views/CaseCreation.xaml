@@ -88,9 +88,9 @@
                 <TextBox x:Name="OrderNumber" Style="{StaticResource textboxes}"/>
                 <DatePicker x:Name="start" DayFormat="day" MonthFormat="month.numeric" YearFormat="year.abbreviated" HorizontalAlignment="Left" Margin="10,25,10,5"/>
                 <DatePicker x:Name="End" DayFormat="day" MonthFormat="month.numeric" YearFormat="year.abbreviated" HorizontalAlignment="Left" Margin="10,25,10,5"/>
-                <TextBox x:Name="CaseDescription" Style="{StaticResource textboxes}"/>
+                <TextBox x:Name="OrderCustomer" Style="{StaticResource textboxes}"/>
+                <TextBox x:Name="CaseDescription" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
                 <TextBox x:Name="CaseMaterials" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
-                <TextBox x:Name="OrderCustomer" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
             </StackPanel>
         </Grid>
 
@@ -104,8 +104,18 @@
                     <Setter Property="Margin" Value="10,20,10,20"/>
                 </Style>
             </StackPanel.Resources>
-            <Button x:Name="Cancel" Style="{StaticResource button}" Margin="50,20,10,20" Content="Annuller" Click="MainPage"/>
-            <Button x:Name="Save" Style="{StaticResource button}" Content="Gem"/>
+            <Button x:Name="Cancel" Style="{StaticResource button}" Margin="50,20,10,20" Click="MainPage">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text=" Annuller"/>
+                    <SymbolIcon Symbol="Cancel"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="Save" Style="{StaticResource button}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text=" Gem"/>
+                    <SymbolIcon Symbol="Save"/>
+                </StackPanel>
+            </Button>
         </StackPanel>
     </Grid>
 

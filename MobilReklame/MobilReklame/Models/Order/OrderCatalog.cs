@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MobilReklame.Customer
+namespace MobilReklame
 {
-    class OrderCatalog
+    public class OrderCatalog : CatalogBase<Order, Order, int>
     {
+        protected OrderCatalog(IFactory<Order, Order> factory) : base(factory)
+        {
+        }
     }
 }

@@ -4,22 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MobilReklame.Models
+namespace MobilReklame
 {
-    class OrderMaterials
+    public class OrderMaterials : CatalogBase<Material, Material, int>
     {
-        private List<string> _materiaList;
-        private int _materialCost;
-        //to do: more instance fields
-
-        public OrderMaterials()
+        protected OrderMaterials(IFactory<Material, Material> factory) : base(factory)
         {
-         //to do: finish constructor   
         }
-
-        //to do: properties
-
-        //to do: methods
-
     }
 }

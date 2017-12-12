@@ -108,6 +108,7 @@
     <Compile Include="Interfaces\IKey.cs" />
     <Compile Include="Models\Customer\Customer.cs" />
     <Compile Include="Models\Customer\CustomerCatalog.cs" />
+    <Compile Include="Models\Order\Material.cs" />
     <Compile Include="Models\Order\OrderMaterials.cs" />
     <Compile Include="Models\Order\Order.cs" />
     <Compile Include="Models\Order\OrderCatalog.cs" />
