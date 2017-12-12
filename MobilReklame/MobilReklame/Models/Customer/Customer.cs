@@ -32,7 +32,7 @@ namespace MobilReklame.Order
             _contactEmail = contactEmail;
             _notes = notes;
         }
-        #endregion
+        #endregion 
 
         #region Properties
         public string CustomerName => _customerName;
