@@ -12,7 +12,7 @@ namespace MobilReklame
     public abstract class MasterDetailsViewModelBase<TData, T, TKey> : INotifyPropertyChanged
     where TKey : IKey<TKey>
     where TData : IKey<TKey>
-    where T : TKey, new()
+    where T : IKey<TKey>, new()
     {
         #region Instance fields
         private CatalogBase<TData, T, TKey> _catalog;

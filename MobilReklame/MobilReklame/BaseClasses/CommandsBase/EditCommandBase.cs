@@ -9,7 +9,7 @@ namespace MobilReklame
     public class EditCommandBase<TData, T, TKey> : CommandBase<TData, T, TKey>
         where TKey : IKey<TKey>
         where TData : IKey<TKey>
-        where T : TKey, new()
+        where T : IKey<TKey>, new()
     {
         public EditCommandBase(CatalogBase<TData, T, TKey> catalog, MasterDetailsViewModelBase<TData, T, TKey> viewModel)
         :base(catalog, viewModel){}
