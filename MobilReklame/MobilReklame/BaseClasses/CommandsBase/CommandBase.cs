@@ -7,17 +7,18 @@ using System.Windows.Input;
 
 namespace MobilReklame.BaseClasses
 {
-    /// <summary>
-    /// Base class for handlers. Most handlers will need access to
-    /// view model and domain model, which is provided by this class.
-    /// </summary>
-    /// <typeparam name="TKey"></typeparam>
     public abstract class CommandBase<TData, T, TKey> : ICommand
         where TKey : IKey<TKey>
+        where TData : IKey<TKey>
         where T : TKey, new()
     {
-        //Constructor
-        protected CommandBase(){}
+        protected MasterDetailsViewModelBase<TData, T, TKey> _viewModel;
+        protected CatalogBase<TData, T, TKey> _catalog;
+        protected CommandBase(CatalogBase<TData, T, TKey> catalog, MasterDetailsViewModelBase<TData, T, TKey> viewModel)
+        {
+            _catalog = catalog;
+            _viewModel = viewModel;
+        }
         public abstract void Execute();
         public virtual bool CanExecute()
         {
@@ -37,5 +38,4 @@ namespace MobilReklame.BaseClasses
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
     }
-    
 }

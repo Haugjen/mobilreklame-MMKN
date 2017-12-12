@@ -8,24 +8,18 @@ namespace MobilReklame.BaseClasses
 {
 public class CreateCommandBase<TData, T, TKey> : CommandBase<TData, T, TKey>
         where TKey : IKey<TKey>
+        where TData : IKey<TKey>
         where T : TKey, new()
     {
-        private CatalogBase<TData, T, TKey> _catalog;
-        private TData _TDTO;
-        public CreateCommandBase(CatalogBase<TData, T, TKey> catalog, TData TDTO)
-        {
-            _catalog = catalog;
-            _TDTO = TDTO;
-        }
+        public CreateCommandBase(CatalogBase<TData, T, TKey> catalog, MasterDetailsViewModelBase<TData, T, TKey> viewModel)
+        :base(catalog, viewModel){}
         public override bool CanExecute()
         {
-            //Maybe add a condition later...
             return true;
         }
         public override void Execute()
         {
-            // Add to catalog
-            _catalog.Create(_TDTO);
+            _catalog.Create(_viewModel.DataPackage);
         }
     }
 }
