@@ -8,7 +8,7 @@ using System.Windows.Input;
 namespace MobilReklame
 {
     public abstract class CommandBase<TData, T, TKey> : ICommand
-        where TKey : IKey<TKey>
+        // where TKey : IKey<TKey>
         where TData : IKey<TKey>
         where T : IKey<TKey>, new()
     {

@@ -20,7 +20,7 @@ namespace MobilReklame
         public void Create(TData data)
         {
             T obj = _factory.Convert(data);
-            _data.Add(obj.Key, obj);
+            _data.Add(NextKey(obj), obj);  // make a keygen method
         }
         public void Delete(TKey key)
         {
@@ -31,6 +31,12 @@ namespace MobilReklame
             T obj = _factory.Convert(data);
             _data.Remove(obj.Key);
             _data.Add(obj.Key, obj);
+        }
+
+        private int NextKey(T obj)
+        {
+            obj.Key++;
+            return obj.Key;
         }
     }
 }

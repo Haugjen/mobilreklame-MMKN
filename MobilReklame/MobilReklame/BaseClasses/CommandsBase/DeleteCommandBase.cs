@@ -8,7 +8,7 @@ using System.Windows.Input;
 namespace MobilReklame
 {
 public class DeleteCommandBase<TData, T, TKey> : CommandBase<TData, T, TKey>
-        where TKey : IKey<TKey>
+        // where TKey : IKey<TKey>
         where TData : IKey<TKey>
         where T : IKey<TKey>, new()
     {

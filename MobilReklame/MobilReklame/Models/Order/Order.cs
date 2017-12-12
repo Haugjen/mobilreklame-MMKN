@@ -27,13 +27,15 @@ namespace MobilReklame
         #endregion
 
         #region Constructor
-        public Order(string startupDate, string deadlineDate, string workDescription, OrderMaterials orderMaterials, Customer orderCustomer)
+        public Order()
         {
-            _startupDate = startupDate;
-            _deadlineDate = deadlineDate;
-            _workDescription = workDescription;
-            _orderMaterials = orderMaterials;
-            _orderCustomer = orderCustomer;
+
+            // former parameters :: string startupDate, string deadlineDate, string workDescription, OrderMaterials orderMaterials, Customer orderCustomer
+            //_startupDate = startupDate;
+            //_deadlineDate = deadlineDate;
+            //_workDescription = workDescription;
+            //_orderMaterials = orderMaterials;
+            //_orderCustomer = orderCustomer;
         }
         #endregion
 
@@ -45,12 +47,13 @@ namespace MobilReklame
         #endregion
 
         #region Properties
-        public int OrderNumber => _orderNumber;
-        public string StartupDate => _startupDate;
-        public string DeadlineDate => _deadlineDate;
-        public string WorkDescription => _workDescription;
-        public OrderMaterials OrderMaterials => _orderMaterials;
-        public Customer OrderCustomer => _orderCustomer;
+        public int OrderNumber { get => _orderNumber; set => value = _orderNumber; }
+
+        public string StartupDate { get => _startupDate; set => value = _startupDate; }
+        public string DeadlineDate { get => _deadlineDate; set => value = _deadlineDate; }
+        public string WorkDescription { get => _workDescription; set => value = _workDescription; }
+        public OrderMaterials OrderMaterials { get => _orderMaterials; set => value = _orderMaterials; }
+        public Customer OrderCustomer { get => _orderCustomer; set => value = _orderCustomer; }
         #endregion
 
         #region Enumeration Properties
