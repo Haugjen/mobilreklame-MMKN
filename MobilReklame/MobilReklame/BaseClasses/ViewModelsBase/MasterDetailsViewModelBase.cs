@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MobilReklame.BaseClasses
+namespace MobilReklame
 {
     public abstract class MasterDetailsViewModelBase<TData, T, TKey> : INotifyPropertyChanged
     where TKey : IKey<TKey>
@@ -17,7 +17,7 @@ namespace MobilReklame.BaseClasses
         #region Instance fields
         private CatalogBase<TData, T, TKey> _catalog;
         private ViewModelFactoryBase<TData, T, TKey> _factory;
-        private ItemViewModelBase<TKey> _itemViewModelSelected;
+        private ItemViewModelBase<T, TKey> _itemViewModelSelected;
         protected TData _dataPackage;
         private DeleteCommandBase<TData, T, TKey> _deleteCommand;
         private CreateCommandBase<TData, T, TKey> _createCommand;

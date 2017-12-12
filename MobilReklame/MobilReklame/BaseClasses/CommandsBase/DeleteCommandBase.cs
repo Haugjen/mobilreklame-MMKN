@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MobilReklame.BaseClasses
+namespace MobilReklame
 {
 public class DeleteCommandBase<TData, T, TKey> : CommandBase<TData, T, TKey>
         where TKey : IKey<TKey>

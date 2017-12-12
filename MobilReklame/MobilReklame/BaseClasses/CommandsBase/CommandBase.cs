@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MobilReklame.BaseClasses
+namespace MobilReklame
 {
     public abstract class CommandBase<TData, T, TKey> : ICommand
         where TKey : IKey<TKey>
