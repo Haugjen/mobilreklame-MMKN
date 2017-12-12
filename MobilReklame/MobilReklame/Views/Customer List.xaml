@@ -88,15 +88,26 @@
                     <Setter Property="Margin" Value="10,20,0,0"/>
                 </Style>
             </StackPanel.Resources>
-            <Button x:Name="NewCase" Content="Ny sag" Style="{StaticResource TabStyle}" Margin="20,20,0,10" Click="CaseCreation"/>
-            <Button x:Name="CaseLiburary" Content="Sager" Style="{StaticResource TabStyle}" Margin="20,20,0,10" Click="MainPage"/>
-            <TextBox x:Name="SearchHere" Margin="20,10,0,0" PlaceholderText="Søg" VerticalAlignment="Center" Width="181" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
-            <Button x:Name="Search" Content="S" Margin="0,10,0,0" Height="32"  VerticalAlignment="Stretch" Width="32" HorizontalAlignment="Center"/>
+
+            <Button x:Name="NewCase" Style="{StaticResource TabStyle}" Margin="20,20,0,10" Click="CaseCreation">
+                <SymbolIcon Symbol="Add"/>
+            </Button>
+            
+            <Button x:Name="CaseLiburary" Style="{StaticResource TabStyle}" Margin="20,20,0,10" Click="MainPage">
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF12B;"/>
+            </Button>
+            
+            <TextBox x:Name="SearchHere" Margin="10,10,0,0" PlaceholderText="Søg" VerticalAlignment="Center" Width="181" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+            
+            <Button x:Name="Search" Margin="0,10,0,0" Height="32"  VerticalAlignment="Stretch" Width="40" HorizontalAlignment="Center">
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE71E;"/>
+            </Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="LightGray">
             <ComboBox x:Name="SearchCatagory" PlaceholderText="Sortering" HorizontalAlignment="Center" Margin="100,10,0,0" VerticalAlignment="center" Width="240" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
-            <Button x:Name="Clear" Content="Clear" Margin="10,10,0,0" Height="32" VerticalAlignment="Stretch" MinWidth="85" Width="auto" HorizontalAlignment="Center"/>
+            
+            <Button x:Name="Clear" Margin="10,10,0,0" Height="32" VerticalAlignment="Stretch" MinWidth="85" Width="auto" HorizontalAlignment="Center"/>
         </StackPanel>
 
         <ListView x:Name="CaseList" Grid.RowSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="1"/>
@@ -113,8 +124,18 @@
                 </Style>
             </StackPanel.Resources>
 
-            <Button x:Name="Delete" Content="Delete" Style="{StaticResource EditDel}" Margin="180,20,0,20"/>
-            <Button x:Name="Edit" Content="Edit" Style="{StaticResource EditDel}" Margin="40,20,0,20"/>
+            <Button x:Name="Delete" Style="{StaticResource EditDel}" Margin="180,20,0,20">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Slet"/>
+                    <SymbolIcon Symbol="Delete"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="Edit" Style="{StaticResource EditDel}" Margin="40,20,0,20">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Rediger"/>
+                    <SymbolIcon Symbol="Edit"/>
+                </StackPanel>
+            </Button>
 
         </StackPanel>
         
