@@ -51,12 +51,12 @@ namespace MobilReklame
             get{ return _editCommand; }
         }
         #endregion
-        public List<ItemViewModelBase<TKey>> ItemViewModelCollection
+        public List<ItemViewModelBase<T,TKey>> ItemViewModelCollection
         {
             get { return _factory.GetItemViewModelCollection(_catalog); }
         }
   
-        public ItemViewModelBase<TKey> ItemViewModelSelected
+        public ItemViewModelBase<T, TKey> ItemViewModelSelected
         {
             get { return _itemViewModelSelected; }
             set
