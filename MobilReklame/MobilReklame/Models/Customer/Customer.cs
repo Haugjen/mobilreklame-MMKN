@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MobilReklame.Order
+namespace MobilReklame.Customer
 {
     class Customer
     {
@@ -50,8 +50,6 @@ namespace MobilReklame.Order
 
 
         #endregion
-
-
 
         // to do: more instance fields?
         // useless comment
