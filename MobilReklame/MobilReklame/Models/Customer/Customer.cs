@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MobilReklame.Order
 {
-    class Customer : IKey<string>
+    public class Customer : IKey<string>
     {
         #region Instance field
         private string _customerName;
