@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MobilReklame
 {
-    public class CustomerTDTO : IKey<int>
+    public class MaterialTDTO : IKey<int>
     {
         public int Key { get; set; }
     }
