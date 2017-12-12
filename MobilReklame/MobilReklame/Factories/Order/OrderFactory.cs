@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MobilReklame
 {
-    public class CustomerFactory : IFactory<Customer, CustomerTDTO>
+    public class OrderFactory : IFactory<Order, OrderTDTO>
     {
-        public Customer Convert(CustomerTDTO obj)
+        public Order Convert(OrderTDTO obj)
         {
             throw new NotImplementedException();
         }

@@ -103,6 +103,12 @@
     <Compile Include="BaseClasses\Factories\ViewModelFactoryBase.cs" />
     <Compile Include="BaseClasses\ViewModelsBase\ItemViemModelBase.cs" />
     <Compile Include="BaseClasses\ViewModelsBase\MasterDetailsViewModelBase.cs" />
+    <Compile Include="Factories\Customer\CustomerFactory.cs" />
+    <Compile Include="Factories\Customer\CustomerTDTO.cs" />
+    <Compile Include="Factories\Material\MaterialFactory.cs" />
+    <Compile Include="Factories\Material\MaterialTDTO.cs" />
+    <Compile Include="Factories\Order\OrderFactory.cs" />
+    <Compile Include="Factories\Order\OrderTDTO.cs" />
     <Compile Include="Interfaces\ICRUD.cs" />
     <Compile Include="Interfaces\IFactory.cs" />
     <Compile Include="Interfaces\IKey.cs" />
