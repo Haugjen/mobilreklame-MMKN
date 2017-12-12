@@ -23,6 +23,25 @@
             <RowDefinition Height="104*"/>
         </Grid.RowDefinitions>
 
+        <Grid.Resources>
+            <Style TargetType="Button" x:Name="TabStyle">
+                <Setter Property="Height" Value="auto"/>
+                <Setter Property="Width" Value="auto"/>
+                <Setter Property="VerticalAlignment" Value="Stretch"/>
+                <Setter Property="MinWidth" Value="85"/>
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+                <Setter Property="Margin" Value="10,20,0,0"/>
+            </Style>
+
+            <Style TargetType="Button" x:Name="EditDel">
+                <Setter Property="Height" Value="auto"/>
+                <Setter Property="Width" Value="150"/>
+                <Setter Property="VerticalAlignment" Value="Stretch"/>
+                <Setter Property="MinWidth" Value="85"/>
+                <Setter Property="HorizontalAlignment" Value="center"/>
+            </Style>
+        </Grid.Resources>
+
         <ScrollViewer Grid.Column="1" Grid.Row="1" HorizontalScrollBarVisibility="Visible">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -113,25 +132,17 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="LightGray">
-                <StackPanel.Resources>
-                    <Style TargetType="Button" x:Name="TabStyle">
-                        <Setter Property="Height" Value="auto"/>
-                        <Setter Property="Width" Value="auto"/>
-                        <Setter Property="VerticalAlignment" Value="Stretch"/>
-                        <Setter Property="MinWidth" Value="85"/>
-                        <Setter Property="HorizontalAlignment" Value="Right"/>
-                        <Setter Property="Margin" Value="10,20,0,0"/>
-                    </Style>
-                </StackPanel.Resources>
 
                 <Button x:Name="NewCase" Style="{StaticResource TabStyle}" Margin="20,20,0,10" Click="CaseCreation">
                     <SymbolIcon Symbol="Add"/>
                 </Button>
-
+                
                 <Button x:Name="CustomerLibrary" Style="{StaticResource TabStyle}" Margin="20,20,0,10" Click="CustomerList">
                     <SymbolIcon Symbol="Contact"/>
                 </Button>
+                
                 <TextBox x:Name="SearchHere" Margin="10,10,0,0" PlaceholderText="Søg" VerticalAlignment="Center" Width="181" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+               
                 <Button x:Name="Search" Margin="0,10,0,0" Height="32"  VerticalAlignment="Stretch" Width="40" HorizontalAlignment="Center">
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE71E;"/>
                 </Button>
@@ -140,55 +151,35 @@
 
             <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="LightGray">
                 <ComboBox x:Name="SearchCatagory" PlaceholderText="Sortering" HorizontalAlignment="Center" Margin="100,10,0,0" VerticalAlignment="center" Width="240" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
-                <Button x:Name="Clear" Content="Clear" Margin="10,10,0,0" Height="32" VerticalAlignment="Stretch" MinWidth="85" Width="auto" HorizontalAlignment="Center"/>
+                <Button x:Name="Clear" Margin="0,10,0,0" Height="32" VerticalAlignment="Stretch" Width="40" HorizontalAlignment="Center">
+                    <SymbolIcon Symbol="Clear"/>
+                </Button>
             </StackPanel>
 
             <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="LightGray">
-                <StackPanel.Resources>
-                    <Style TargetType="Button" x:Name="TabStyle2">
-                        <Setter Property="Height" Value="auto"/>
-                        <Setter Property="Width" Value="auto"/>
-                        <Setter Property="VerticalAlignment" Value="Stretch"/>
-                        <Setter Property="MinWidth" Value="85"/>
-                        <Setter Property="HorizontalAlignment" Value="Right"/>
-                        <Setter Property="Margin" Value="10,20,0,0"/>
-                    </Style>
-                </StackPanel.Resources>
-
-                <Button x:Name="Tab1" Content="Tab 1" Style="{StaticResource TabStyle2}" Margin="60,20,0,0"/>
-                <Button x:Name="Tab2" Content="Tab 2" Style="{StaticResource TabStyle2}"/>
-                <Button x:Name="Tab3" Content="Tab 3" Style="{StaticResource TabStyle2}"/>
-                <Button x:Name="Tab4" Content="Tab 4" Style="{StaticResource TabStyle2}"/>
+                <Button x:Name="Tab1" Content="Tab 1" Style="{StaticResource TabStyle}" Margin="60,20,0,0"/>
+                <Button x:Name="Tab2" Content="Tab 2" Style="{StaticResource TabStyle}"/>
+                <Button x:Name="Tab3" Content="Tab 3" Style="{StaticResource TabStyle}"/>
+                <Button x:Name="Tab4" Content="Tab 4" Style="{StaticResource TabStyle}"/>
             </StackPanel>
         </Grid>
             
         <ListView x:Name="CaseList" Grid.RowSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="1"/>
 
-
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" FlowDirection="RightToLeft" Background="LightGray">
-            <StackPanel.Resources>
-                <Style TargetType="Button" x:Name="EditDel">
-                    <Setter Property="Height" Value="auto"/>
-                    <Setter Property="Width" Value="150"/>
-                    <Setter Property="VerticalAlignment" Value="Stretch"/>
-                    <Setter Property="MinWidth" Value="85"/>
-                    <Setter Property="HorizontalAlignment" Value="center"/>
-                </Style>
-            </StackPanel.Resources>
-            
-            <Button x:Name="Delete"  Style="{StaticResource EditDel}" Margin="180,20,0,20">
+            <Button x:Name="Delete"  Style="{StaticResource EditDel}" Margin="50,20,10,20">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Slet"/>
+                    <TextBlock Text=" Slet"/>
                     <SymbolIcon Symbol="Delete"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="Edit" Style="{StaticResource EditDel}" Margin="40,20,0,20">
+
+            <Button x:Name="Edit" Style="{StaticResource EditDel}" Margin="10,20,10,20">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Rediger"/>
+                    <TextBlock Text=" Rediger"/>
                     <SymbolIcon Symbol="Edit"/>
                 </StackPanel>
             </Button>
-            
         </StackPanel>
     </Grid>
 </Page>
