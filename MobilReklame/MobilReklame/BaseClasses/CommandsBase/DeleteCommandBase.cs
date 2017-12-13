@@ -20,7 +20,7 @@ public class DeleteCommandBase<TData, T, TKey> : CommandBase<TData, T, TKey>
         }
         public override void Execute()
         {
-            _catalog.Delete(_viewModel.ItemViewModelSelected.DomainObject.Key);
+            _catalog.Delete(_viewModel.ItemViewModelSelected.Obj.Key);
             _viewModel.ItemViewModelSelected = null;
             _viewModel.RefreshItemViewModelCollection();
         }

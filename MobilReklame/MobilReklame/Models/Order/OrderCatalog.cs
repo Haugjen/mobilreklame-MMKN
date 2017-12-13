@@ -8,8 +8,15 @@ namespace MobilReklame
 {
     public class OrderCatalog : CatalogBase<Order, Order, int>
     {
-        protected OrderCatalog(IFactory<Order, Order> factory) : base(factory)
+        public OrderCatalog(IFactory<Order, Order> factory) : base(factory)
         {
         }
+
+        public override int NextKey()
+        {
+            int nextKey = (int)Data.Keys.Max() + 1;
+            return nextKey;
+        }
+
     }
 }

@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace MobilReklame
+using MobilReklame;
+using MobilReklame.Controllers.ViewModels.VMFactories;
+namespace MobilReklame.Controllers.ViewModels.CustomerVM
 {
-    public class CustomerMDVM : MasterDetailsViewModelBase<CustomerTDTO, Customer, int>
+    public class CustomerMDVM : MasterDetailsViewModelBase<Customer, Customer, int>
     {
         
-        protected CustomerMDVM(CatalogBase<CustomerTDTO, Customer, int> catalog, ViewModelFactoryBase<CustomerTDTO, Customer, int> factory) : base(catalog, factory)
+        public CustomerMDVM() 
+            : base(new CustomerCatalog(new Factories.TrivialFactory<Customer>()), new CustomerVMFactory())
         {
             
         }
+
         public string CustomerName { get => Obj.CustomerName; set => Obj.CustomerName = value; }
         public int PhoneNumber { get => Obj.PhoneNumber; set => Obj.PhoneNumber = value; }
         public int CvrNumber { get => Obj.CvrNumber; set => Obj.CvrNumber = value; }
@@ -21,7 +24,7 @@ namespace MobilReklame
         public int ContactPhoneNumber { get => Obj.ContactPhoneNumber; set => Obj.ContactPhoneNumber = value; }
         public string ContactEmail { get => Obj.ContactEmail; set => Obj.ContactEmail = value; }
         public string Notes { get => Obj.Notes; set => Obj.Notes = value; }
-        public int CustomerNumber { get => Obj.Key; set => Obj.Key = value; } //no setter!?
+        public int CustomerNumber { get => Obj.Key; } //no setter!?
         public int Key { get => CustomerNumber; }
 
 

@@ -24,6 +24,7 @@ namespace MobilReklame
         protected CreateCommandBase<TData, T, TKey> _createCommand;
         protected EditCommandBase<TData, T, TKey> _editCommand;
         #endregion
+
         #region Constructor
         protected MasterDetailsViewModelBase(
             CatalogBase<TData, T, TKey> catalog,

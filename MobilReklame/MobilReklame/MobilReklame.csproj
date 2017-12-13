@@ -103,16 +103,26 @@
     <Compile Include="BaseClasses\Factories\ViewModelFactoryBase.cs" />
     <Compile Include="BaseClasses\ViewModelsBase\ItemViemModelBase.cs" />
     <Compile Include="BaseClasses\ViewModelsBase\MasterDetailsViewModelBase.cs" />
-    <Compile Include="Controllers\ViewModels\Order\OrderIVM.cs" />
-    <Compile Include="Controllers\ViewModels\Order\OrderMDVM.cs" />
+    <Compile Include="Controllers\Commands\CustomerCmd\CustomerCreateCmd.cs" />
+    <Compile Include="Controllers\Commands\CustomerCmd\CustomerDeleteCmd.cs" />
+    <Compile Include="Controllers\Commands\CustomerCmd\CustomerEditCmd.cs" />
+    <Compile Include="Controllers\Commands\OrderCmd\OrderCreateCmd.cs" />
+    <Compile Include="Controllers\Commands\OrderCmd\OrderDeleteCmd.cs" />
+    <Compile Include="Controllers\Commands\OrderCmd\OrderEditCmd.cs" />
+    <Compile Include="Controllers\ViewModels\CombinedMDVM.cs" />
+    <Compile Include="Controllers\ViewModels\OrderVM\OrderIVM.cs" />
+    <Compile Include="Controllers\ViewModels\OrderVM\OrderMDVM.cs" />
+    <Compile Include="Controllers\ViewModels\VMFactories\CustomerVMFactory.cs" />
+    <Compile Include="Controllers\ViewModels\VMFactories\OrderVMFactory.cs" />
     <Compile Include="Factories\Customer\CustomerFactory.cs" />
     <Compile Include="Factories\Customer\CustomerTDTO.cs" />
     <Compile Include="Factories\Material\MaterialFactory.cs" />
     <Compile Include="Factories\Material\MaterialTDTO.cs" />
     <Compile Include="Factories\Order\OrderFactory.cs" />
     <Compile Include="Factories\Order\OrderTDTO.cs" />
-    <Compile Include="Controllers\ViewModels\Customer\CustomerIVM.cs" />
-    <Compile Include="Controllers\ViewModels\Customer\CustomerMDVM.cs" />
+    <Compile Include="Controllers\ViewModels\CustomerVM\CustomerIVM.cs" />
+    <Compile Include="Controllers\ViewModels\CustomerVM\CustomerMDVM.cs" />
+    <Compile Include="Factories\TrivialFactory.cs" />
     <Compile Include="Interfaces\ICRUD.cs" />
     <Compile Include="Interfaces\IFactory.cs" />
     <Compile Include="Interfaces\IKey.cs" />
@@ -173,7 +183,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\Commands\" />
     <Folder Include="ExternalTools\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

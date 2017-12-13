@@ -10,7 +10,13 @@ namespace MobilReklame
     {
         public Order Convert(OrderTDTO obj)
         {
-            throw new NotImplementedException();
+            Order order = new Order();
+            order.StartupDate = obj.StartupDate;
+            order.DeadlineDate = obj.DeadlineDate;
+            order.WorkDescription = obj.WorkDescription;
+            order.OrderMaterials = obj.OrderMaterials;
+            order.OrderCustomer = obj.OrderCustomer;
+            return order;
         }
     }
 }

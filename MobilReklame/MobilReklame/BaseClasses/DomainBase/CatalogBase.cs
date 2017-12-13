@@ -17,10 +17,13 @@ namespace MobilReklame
             _factory = factory;
         }
         public List<T> All => _data.Values.ToList();
+
+        public Dictionary<TKey, T> Data => _data;
+
         public void Create(TData data)
         {
             T obj = _factory.Convert(data);
-            _data.Add(NextKey(obj), obj);  // make a keygen method
+            _data.Add(NextKey(), obj);  // make a keygen method -  remember to take file persistancy into account (using create with overload maybe for file persistancy)
         }
         public void Delete(TKey key)
         {
@@ -33,10 +36,7 @@ namespace MobilReklame
             _data.Add(obj.Key, obj);
         }
 
-        private int NextKey(T obj)
-        {
-            obj.Key++;
-            return obj.Key;
-        }
+        public abstract TKey NextKey();
+        
     }
 }

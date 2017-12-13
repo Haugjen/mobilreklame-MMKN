@@ -10,7 +10,17 @@ namespace MobilReklame
     {
         public Customer Convert(CustomerTDTO obj)
         {
-            throw new NotImplementedException();
+            Customer customer = new Customer();
+            customer.CustomerName = obj.CustomerName;
+            customer.PhoneNumber = obj.PhoneNumber;
+            customer.CvrNumber = obj.CvrNumber;
+            customer.Email = obj.Email;
+            customer.ContactName = obj.ContactName;
+            customer.ContactPhoneNumber = obj.ContactPhoneNumber;
+            customer.ContactEmail = obj.ContactEmail;
+            customer.Notes = obj.Notes;
+
+            return customer;
         }
     }
 }

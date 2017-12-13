@@ -8,7 +8,7 @@ namespace MobilReklame
 {
     public class CustomerIVM : ItemViewModelBase<Customer, int>
     {
-        protected CustomerIVM(Customer obj) : base(obj)
+        public CustomerIVM(Customer obj) : base(obj)
         {
 
         }
