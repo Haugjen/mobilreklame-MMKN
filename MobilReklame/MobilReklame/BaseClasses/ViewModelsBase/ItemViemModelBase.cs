@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MobilReklame.BaseClasses
-{
-    public abstract class ItemViewModelBase<TKey>
-        where  TKey : IKey<TKey>
+namespace MobilReklame
+{ 
+    public abstract class ItemViewModelBase<T, TKey>
+        where  T : IKey<TKey>
     {
-        protected ItemViewModelBase(TKey obj)
+        protected ItemViewModelBase(T obj)
         {
-            DomainObject = obj;
+            Obj = obj;
         }
-        public TKey DomainObject;
+        public T Obj;
     }
 }

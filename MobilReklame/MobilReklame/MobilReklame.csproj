@@ -103,11 +103,22 @@
     <Compile Include="BaseClasses\Factories\ViewModelFactoryBase.cs" />
     <Compile Include="BaseClasses\ViewModelsBase\ItemViemModelBase.cs" />
     <Compile Include="BaseClasses\ViewModelsBase\MasterDetailsViewModelBase.cs" />
+    <Compile Include="Controllers\ViewModels\Order\OrderIVM.cs" />
+    <Compile Include="Controllers\ViewModels\Order\OrderMDVM.cs" />
+    <Compile Include="Factories\Customer\CustomerFactory.cs" />
+    <Compile Include="Factories\Customer\CustomerTDTO.cs" />
+    <Compile Include="Factories\Material\MaterialFactory.cs" />
+    <Compile Include="Factories\Material\MaterialTDTO.cs" />
+    <Compile Include="Factories\Order\OrderFactory.cs" />
+    <Compile Include="Factories\Order\OrderTDTO.cs" />
+    <Compile Include="Controllers\ViewModels\Customer\CustomerIVM.cs" />
+    <Compile Include="Controllers\ViewModels\Customer\CustomerMDVM.cs" />
     <Compile Include="Interfaces\ICRUD.cs" />
     <Compile Include="Interfaces\IFactory.cs" />
     <Compile Include="Interfaces\IKey.cs" />
     <Compile Include="Models\Customer\Customer.cs" />
     <Compile Include="Models\Customer\CustomerCatalog.cs" />
+    <Compile Include="Models\Order\Material.cs" />
     <Compile Include="Models\Order\OrderMaterials.cs" />
     <Compile Include="Models\Order\Order.cs" />
     <Compile Include="Models\Order\OrderCatalog.cs" />
@@ -163,7 +174,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\Commands\" />
-    <Folder Include="Controllers\ViewModels\" />
     <Folder Include="ExternalTools\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

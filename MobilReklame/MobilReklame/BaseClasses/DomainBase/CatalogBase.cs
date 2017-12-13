@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MobilReklame.BaseClasses
+namespace MobilReklame
 {
     public abstract class CatalogBase<TData, T, TKey> : ICRUD<TData, TKey>
         where T : IKey<TKey>
@@ -20,7 +20,7 @@ namespace MobilReklame.BaseClasses
         public void Create(TData data)
         {
             T obj = _factory.Convert(data);
-            _data.Add(obj.Key, obj);
+            _data.Add(NextKey(obj), obj);  // make a keygen method
         }
         public void Delete(TKey key)
         {
@@ -31,6 +31,12 @@ namespace MobilReklame.BaseClasses
             T obj = _factory.Convert(data);
             _data.Remove(obj.Key);
             _data.Add(obj.Key, obj);
+        }
+
+        private int NextKey(T obj)
+        {
+            obj.Key++;
+            return obj.Key;
         }
     }
 }

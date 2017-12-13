@@ -1,16 +1,15 @@
 using System.Collections.Generic;
 using System.Linq;
     
-    namespace MobilReklame.BaseClasses
+    namespace MobilReklame
     {
         public abstract class ViewModelFactoryBase<TData, T, TKey>
-        where TKey : IKey<TKey>
-        where T : TKey
+        where T : IKey<TKey>
         {
-            public abstract ItemViewModelBase<TKey> CreateItemViewModel(T obj);
-            public List<ItemViewModelBase<TKey>> GetItemViewModelCollection(CatalogBase<TData, T, TKey> catalog)
+            public abstract ItemViewModelBase<T,TKey> CreateItemViewModel(T obj);
+            public List<ItemViewModelBase<T, TKey>> GetItemViewModelCollection(CatalogBase<TData, T, TKey> catalog)
             {
-                List<ItemViewModelBase<TKey>> items = new List<ItemViewModelBase<TKey>>();
+                List<ItemViewModelBase<T, TKey>> items = new List<ItemViewModelBase<T, TKey>>();
 
                 foreach (T obj in catalog.All)
                 {

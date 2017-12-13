@@ -1,18 +1,16 @@
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MobilReklame
 {
-    public class CustomerFactory : IFactory<T, TData>
+    public class CustomerFactory : IFactory<Customer, CustomerTDTO>
     {
-        public CustomerFactory(TData)
+        public Customer Convert(CustomerTDTO obj)
         {
-        }
-
-        public T Convert(TData obj)
-        {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
-
 }

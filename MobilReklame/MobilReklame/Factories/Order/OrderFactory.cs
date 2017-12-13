@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace MobilReklame
 {
-    public class OrderMaterials : CatalogBase<Material, Material, int>
+    public class OrderFactory : IFactory<Order, OrderTDTO>
     {
-        protected OrderMaterials(IFactory<Material, Material> factory) : base(factory)
+        public Order Convert(OrderTDTO obj)
         {
+            throw new NotImplementedException();
         }
     }
 }

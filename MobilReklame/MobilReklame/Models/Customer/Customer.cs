@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MobilReklame.Order
+namespace MobilReklame
 {
-    class Customer : IKey<int>
+    public class Customer : IKey<int>
     {
         #region Instance field
         private string _customerName;
@@ -21,30 +21,34 @@ namespace MobilReklame.Order
         #endregion
 
         #region Constructor
-        public Customer(string customerName, int phoneNumber, int cvrNumber, string email, string contactName,
-            int contactPhoneNumber, string contactEmail, string notes, int customerNumber)
+        public Customer()
         {
-            _customerName = customerName;
-            _phoneNumber = phoneNumber;
-            _cvrNumber = cvrNumber;
-            _email = email;
-            _contactName = contactName;
-            _contactPhoneNumber = contactPhoneNumber;
-            _contactEmail = contactEmail;
-            _notes = notes;
-            _customerNumber = customerNumber;
+
+            // former parameters string customerName, int phoneNumber, int cvrNumber, string email, string contactName,
+            // int contactPhoneNumber, string contactEmail, string notes, int customerNumber; 
+
+            //_customerName = customerName;
+            //_phoneNumber = phoneNumber;
+            //_cvrNumber = cvrNumber;
+            //_email = email;
+            //_contactName = contactName;
+            //_contactPhoneNumber = contactPhoneNumber;
+            //_contactEmail = contactEmail;
+            //_notes = notes;
+            //_customerNumber = customerNumber;
         }
-        #endregion
+        #endregion 
 
         #region Properties
-        public string CustomerName => _customerName;
-        public int PhoneNumber => _phoneNumber;
-        public int CvrNumber => _cvrNumber;
-        public string Email => _email;
-        public string ContactName => _contactName;
-        public int ContactPhoneNumber => _contactPhoneNumber;
-        public string ContactEmail => _contactEmail;
-        public string Notes => _notes;
+        public string CustomerName { get => _customerName; set => value = _customerName; }
+
+        public int PhoneNumber { get => _phoneNumber; set => value = _phoneNumber; }
+        public int CvrNumber { get => _cvrNumber; set => value = _cvrNumber; }
+        public string Email { get => _email; set => value = _email; }
+        public string ContactName { get => _contactName; set => value = _contactName; }
+        public int ContactPhoneNumber { get => _contactPhoneNumber; set => value = _contactPhoneNumber; }
+        public string ContactEmail { get => _contactEmail; set => value = _contactEmail; }
+        public string Notes { get => _notes; set => value = _notes; }
         #endregion
 
         #region Methods

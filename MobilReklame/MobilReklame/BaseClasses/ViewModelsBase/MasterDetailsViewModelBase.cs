@@ -7,21 +7,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MobilReklame.BaseClasses
+namespace MobilReklame
 {
     public abstract class MasterDetailsViewModelBase<TData, T, TKey> : INotifyPropertyChanged
-    where TKey : IKey<TKey>
+    // where TKey : IKey<TKey>
     where TData : IKey<TKey>
-    where T : TKey, new()
+    where T : IKey<TKey>, new()
     {
         #region Instance fields
-        private CatalogBase<TData, T, TKey> _catalog;
-        private ViewModelFactoryBase<TData, T, TKey> _factory;
-        private ItemViewModelBase<TKey> _itemViewModelSelected;
+        protected CatalogBase<TData, T, TKey> _catalog;
+        private T _obj;
+        protected ViewModelFactoryBase<TData, T, TKey> _factory;
+        protected ItemViewModelBase<T, TKey> _itemViewModelSelected;
         protected TData _dataPackage;
-        private DeleteCommandBase<TData, T, TKey> _deleteCommand;
-        private CreateCommandBase<TData, T, TKey> _createCommand;
-        private EditCommandBase<TData, T, TKey> _editCommand;
+        protected DeleteCommandBase<TData, T, TKey> _deleteCommand;
+        protected CreateCommandBase<TData, T, TKey> _createCommand;
+        protected EditCommandBase<TData, T, TKey> _editCommand;
         #endregion
         #region Constructor
         protected MasterDetailsViewModelBase(
@@ -51,12 +52,12 @@ namespace MobilReklame.BaseClasses
             get{ return _editCommand; }
         }
         #endregion
-        public List<ItemViewModelBase<TKey>> ItemViewModelCollection
+        public List<ItemViewModelBase<T,TKey>> ItemViewModelCollection
         {
             get { return _factory.GetItemViewModelCollection(_catalog); }
         }
   
-        public ItemViewModelBase<TKey> ItemViewModelSelected
+        public ItemViewModelBase<T, TKey> ItemViewModelSelected
         {
             get { return _itemViewModelSelected; }
             set
@@ -71,6 +72,7 @@ namespace MobilReklame.BaseClasses
             get => _dataPackage;
             set => value = _dataPackage;
         }
+        protected T Obj { get => _obj; set => _obj = value; }
         #endregion
 
         #region Methods

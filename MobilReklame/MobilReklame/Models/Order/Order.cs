@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MobilReklame.Models;
+// using MobilReklame.Models;
 
-namespace MobilReklame.Order
+namespace MobilReklame
 {
-    class Order
+    public class Order : IKey<int>
     {
         #region Enumeration
         public enum OrderStatus { Request, Offer, AktiveStatus, Finished, Invoiced, AktiveRed1, ActiveRed2, ActiveYellow, ActiveGreen }
         #endregion
 
         #region Instance field
-        private string _orderNumber;
+        private int _orderNumber;
         private string _startupDate;
         private string _deadlineDate;
         private string _workDescription;
@@ -27,14 +27,15 @@ namespace MobilReklame.Order
         #endregion
 
         #region Constructor
-        public Order(string orderNumber, string startupDate, string deadlineDate, string workDescription, OrderMaterials orderMaterials, Customer orderCustomer)
+        public Order()
         {
-            _orderNumber = orderNumber;
-            _startupDate = startupDate;
-            _deadlineDate = deadlineDate;
-            _workDescription = workDescription;
-            _orderMaterials = orderMaterials;
-            _orderCustomer = orderCustomer;
+
+            // former parameters :: string startupDate, string deadlineDate, string workDescription, OrderMaterials orderMaterials, Customer orderCustomer
+            //_startupDate = startupDate;
+            //_deadlineDate = deadlineDate;
+            //_workDescription = workDescription;
+            //_orderMaterials = orderMaterials;
+            //_orderCustomer = orderCustomer;
         }
         #endregion
 
@@ -46,12 +47,13 @@ namespace MobilReklame.Order
         #endregion
 
         #region Properties
-        public string OrderNumber => _orderNumber;
-        public string StartupDate => _startupDate;
-        public string DeadlineDate => _deadlineDate;
-        public string WorkDescription => _workDescription;
-        public OrderMaterials OrderMaterials => _orderMaterials;
-        public Customer OrderCustomer => _orderCustomer;
+        public int OrderNumber { get => _orderNumber; set => value = _orderNumber; }
+
+        public string StartupDate { get => _startupDate; set => value = _startupDate; }
+        public string DeadlineDate { get => _deadlineDate; set => value = _deadlineDate; }
+        public string WorkDescription { get => _workDescription; set => value = _workDescription; }
+        public OrderMaterials OrderMaterials { get => _orderMaterials; set => value = _orderMaterials; }
+        public Customer OrderCustomer { get => _orderCustomer; set => value = _orderCustomer; }
         #endregion
 
         #region Enumeration Properties
@@ -62,6 +64,8 @@ namespace MobilReklame.Order
                 return $"{_orderStatus}";
             }
         }
+
+        public int Key { get => _orderNumber; set => value = _orderNumber;}
         #endregion
 
         #region Methods
