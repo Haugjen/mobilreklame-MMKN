@@ -85,7 +85,7 @@
             </StackPanel>
 
             <StackPanel Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <TextBox x:Name="OrderNumber" Style="{StaticResource textboxes}"/>
+                <TextBox x:Name="OrderNumber" Style="{StaticResource textboxes}" IsEnabled="False"/>
                 <DatePicker x:Name="start" DayFormat="day" MonthFormat="month.numeric" YearFormat="year.abbreviated" HorizontalAlignment="Left" Margin="10,25,10,5"/>
                 <DatePicker x:Name="End" DayFormat="day" MonthFormat="month.numeric" YearFormat="year.abbreviated" HorizontalAlignment="Left" Margin="10,25,10,5"/>
                 <TextBox x:Name="OrderCustomer" Style="{StaticResource textboxes}"/>

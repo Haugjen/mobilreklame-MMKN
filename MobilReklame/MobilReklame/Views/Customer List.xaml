@@ -122,7 +122,48 @@
             </Button>
         </StackPanel>
 
-        <ListView x:Name="CaseList" Grid.RowSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="1"/>
+        <ListView x:Name="CaseList" Grid.RowSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="1">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Grid.Resources>
+                    <Style TargetType="TextBlock" x:Name="items">
+                        <Setter Property="Margin" Value="0,0,5,0"/>
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>
+                </Grid.Resources>
+                
+                <StackPanel Orientation="Horizontal" Width="auto">
+                    <TextBlock Text="Kunde navn:" Style="{StaticResource items}"/>
+                    <TextBlock Text="Mobilreklame" Style="{StaticResource items}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.Column="1" Width="auto">
+                    <TextBlock Text="CVR nr.:" Style="{StaticResource items}" Margin="20,0,5,0"/>
+                    <TextBlock Text="1234567800000" Style="{StaticResource items}"/>
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal" Grid.Row="1">
+                    <TextBlock Text="E-mail:" Style="{StaticResource items}"/>
+                    <TextBlock Text="123mail@hotmail.com" Style="{StaticResource items}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
+                    <TextBlock Text="Tlf nr.:" Style="{StaticResource items}" Margin="20,0,5,0"/>
+                    <TextBlock Text="12345678" Style="{StaticResource items}"/>
+                </StackPanel>
+            </Grid>
+            
+            
+    </ListView>
 
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" FlowDirection="RightToLeft" Background="LightGray">
             <Button x:Name="Delete" Style="{StaticResource EditDel}" Margin="50,20,10,20">

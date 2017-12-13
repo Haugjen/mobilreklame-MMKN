@@ -8,9 +8,6 @@
     xmlns:interop="using:Windows.UI.Xaml.Interop"
     mc:Ignorable="d">
 
-
-
-
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
