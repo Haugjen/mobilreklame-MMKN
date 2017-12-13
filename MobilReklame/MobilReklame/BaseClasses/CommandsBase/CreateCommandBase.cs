@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace MobilReklame
 {
 public class CreateCommandBase<TData, T, TKey> : CommandBase<TData, T, TKey>
-        // where TKey : IKey<TKey>
         where TData : IKey<TKey>
         where T : IKey<TKey>, new()
     {
@@ -20,6 +19,7 @@ public class CreateCommandBase<TData, T, TKey> : CommandBase<TData, T, TKey>
         public override void Execute()
         {
             _catalog.Create(_viewModel.DataPackage);
+            _viewModel.RefreshItemViewModelCollection();
         }
     }
 }

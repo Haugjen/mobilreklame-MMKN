@@ -17,10 +17,6 @@ namespace MobilReklame.Controllers.ViewModels.OrderVM
 
 
 
-         
-            //   : base(new OrderCatalog(new Factories.TrivialFactory<Order>()), new OrderVMFactory())
-
-        // CatalogBase<OrderTDTO, Order, int> catalog, ViewModelFactoryBase<OrderTDTO, Order, int> factory
 
         {
 

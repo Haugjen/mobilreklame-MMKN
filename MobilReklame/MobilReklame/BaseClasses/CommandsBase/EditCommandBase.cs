@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace MobilReklame
 {
     public class EditCommandBase<TData, T, TKey> : CommandBase<TData, T, TKey>
-        // where TKey : IKey<TKey>
         where TData : IKey<TKey>
         where T : IKey<TKey>, new()
     {
