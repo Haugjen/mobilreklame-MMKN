@@ -11,5 +11,10 @@ namespace MobilReklame
         protected OrderMaterials(IFactory<Material, Material> factory) : base(factory)
         {
         }
+
+        public override int NextKey()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

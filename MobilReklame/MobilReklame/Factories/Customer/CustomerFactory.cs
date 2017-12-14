@@ -6,11 +6,23 @@ using System.Threading.Tasks;
 
 namespace MobilReklame
 {
-    public class CustomerFactory : IFactory<Customer, CustomerTDTO>
+    public class CustomerFactory : IFactory<Customer, Customer>
     {
-        public Customer Convert(CustomerTDTO obj)
+        public Customer Convert(Customer obj)
         {
-            throw new NotImplementedException();
+            Customer customer = new Customer
+            {
+                CustomerName = obj.CustomerName,
+                PhoneNumber = obj.PhoneNumber,
+                CvrNumber = obj.CvrNumber,
+                Email = obj.Email,
+                ContactName = obj.ContactName,
+                ContactPhoneNumber = obj.ContactPhoneNumber,
+                ContactEmail = obj.ContactEmail,
+                Notes = obj.Notes
+            };
+
+            return customer;
         }
     }
 }

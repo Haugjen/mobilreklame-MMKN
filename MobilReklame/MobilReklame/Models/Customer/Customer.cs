@@ -17,38 +17,32 @@ namespace MobilReklame
         private int _contactPhoneNumber;
         private string _contactEmail;
         private string _notes;
-        private int _customerNumber;
+        private int _customerNumber;    //used as key
         #endregion
 
         #region Constructor
         public Customer()
         {
-
-            // former parameters string customerName, int phoneNumber, int cvrNumber, string email, string contactName,
-            // int contactPhoneNumber, string contactEmail, string notes, int customerNumber; 
-
-            //_customerName = customerName;
-            //_phoneNumber = phoneNumber;
-            //_cvrNumber = cvrNumber;
-            //_email = email;
-            //_contactName = contactName;
-            //_contactPhoneNumber = contactPhoneNumber;
-            //_contactEmail = contactEmail;
-            //_notes = notes;
-            //_customerNumber = customerNumber;
         }
         #endregion 
 
         #region Properties
-        public string CustomerName { get => _customerName; set => value = _customerName; }
+        public string CustomerName
+        {
+            get => _customerName; set => _customerName = value; }
 
-        public int PhoneNumber { get => _phoneNumber; set => value = _phoneNumber; }
-        public int CvrNumber { get => _cvrNumber; set => value = _cvrNumber; }
-        public string Email { get => _email; set => value = _email; }
-        public string ContactName { get => _contactName; set => value = _contactName; }
-        public int ContactPhoneNumber { get => _contactPhoneNumber; set => value = _contactPhoneNumber; }
-        public string ContactEmail { get => _contactEmail; set => value = _contactEmail; }
-        public string Notes { get => _notes; set => value = _notes; }
+        public int PhoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
+        public int CvrNumber { get => _cvrNumber; set => _cvrNumber = value; }
+        public string Email { get => _email; set =>  _email = value; }
+        public string ContactName { get => _contactName; set => _contactName = value; }
+        public int ContactPhoneNumber { get => _contactPhoneNumber; set => _contactPhoneNumber = value; }
+        public string ContactEmail { get => _contactEmail; set => _contactEmail = value; }
+        public string Notes { get => _notes; set => _notes = value; }
+        public int Key
+        {
+            get => _customerNumber;
+            set => _customerNumber = value;
+        }
         #endregion
 
         #region Methods
@@ -57,21 +51,7 @@ namespace MobilReklame
 
         #endregion
 
-        public int Key
-        {
-            get => _customerNumber;
-            set => _customerNumber = value;  //github not getting this?
-        }
 
-        // to do: more instance fields?
-        // useless comment
-        // useless comment 2
-
-        // to do: make full constructor
-
-        // to do: properties
-
-        //to do: methods
     }
 
 

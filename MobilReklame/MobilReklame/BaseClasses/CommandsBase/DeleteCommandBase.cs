@@ -9,7 +9,7 @@ namespace MobilReklame
 {
 public class DeleteCommandBase<TData, T, TKey> : CommandBase<TData, T, TKey>
         // where TKey : IKey<TKey>
-        where TData : IKey<TKey>
+        where TData : IKey<TKey>, new()
         where T : IKey<TKey>, new()
     {
         public DeleteCommandBase(CatalogBase<TData, T, TKey> catalog, MasterDetailsViewModelBase<TData, T, TKey> viewModel)
@@ -20,7 +20,7 @@ public class DeleteCommandBase<TData, T, TKey> : CommandBase<TData, T, TKey>
         }
         public override void Execute()
         {
-            _catalog.Delete(_viewModel.ItemViewModelSelected.DomainObject.Key);
+            _catalog.Delete(_viewModel.ItemViewModelSelected.Obj.Key);
             _viewModel.ItemViewModelSelected = null;
             _viewModel.RefreshItemViewModelCollection();
         }

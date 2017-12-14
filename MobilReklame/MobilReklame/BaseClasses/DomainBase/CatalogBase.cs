@@ -11,16 +11,21 @@ namespace MobilReklame
     {
         private Dictionary<TKey, T> _data;
         private IFactory<T, TData> _factory;
+
+
         protected CatalogBase(IFactory<T, TData> factory)
         {
             _data = new Dictionary<TKey, T>();
             _factory = factory;
         }
         public List<T> All => _data.Values.ToList();
-        public void Create(TData data, bool index)
+
+        public Dictionary<TKey, T> Data => _data;
+
+        public void Create(TData data)
         {
             T obj = _factory.Convert(data);
-            _data.Add(IndexKey(obj), obj);  // make a keygen method
+            _data.Add(NextKey(), obj);  // make a keygen method -  remember to take file persistancy into account (using create with overload maybe for file persistancy)
         }
         public void Delete(TKey key)
         {
@@ -33,10 +38,7 @@ namespace MobilReklame
             _data.Add(obj.Key, obj);
         }
 
-        private int IndexKey(T obj)
-        {
-            obj.Key++;
-            return obj.Key;
-        }
+        public abstract TKey NextKey();
+        
     }
 }
