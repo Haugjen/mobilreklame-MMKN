@@ -14,5 +14,7 @@ namespace MobilReklame.Controllers.ViewModels
     {
         public CustomerMDVM customerMDVM = new CustomerMDVM();
         public OrderMDVM orderMDVM = new OrderMDVM();
+
+
     }
 }
