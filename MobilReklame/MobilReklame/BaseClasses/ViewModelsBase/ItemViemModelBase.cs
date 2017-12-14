@@ -11,8 +11,8 @@ namespace MobilReklame
     {
         protected ItemViewModelBase(T obj)
         {
-            DomainObject = obj;
+            Obj = obj;
         }
-        public T DomainObject;
+        public T Obj;
     }
 }
