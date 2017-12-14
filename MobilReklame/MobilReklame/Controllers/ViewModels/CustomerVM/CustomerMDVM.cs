@@ -16,15 +16,19 @@ namespace MobilReklame.Controllers.ViewModels.CustomerVM
             
         }
 
-        public string CustomerName { get => Obj.CustomerName; set => Obj.CustomerName = value; }
-        public int PhoneNumber { get => Obj.PhoneNumber; set => Obj.PhoneNumber = value; }
-        public int CvrNumber { get => Obj.CvrNumber; set => Obj.CvrNumber = value; }
-        public string Email { get => Obj.Email; set => Obj.Email = value; }
-        public string ContactName { get => Obj.ContactName; set => Obj.ContactName = value; }
-        public int ContactPhoneNumber { get => Obj.ContactPhoneNumber; set => Obj.ContactPhoneNumber = value; }
-        public string ContactEmail { get => Obj.ContactEmail; set => Obj.ContactEmail = value; }
-        public string Notes { get => Obj.Notes; set => Obj.Notes = value; }
-        public int CustomerNumber { get => Obj.Key; } //no setter!?
+        public string CustomerName
+        {
+            get => DataPackage.CustomerName;
+            set => DataPackage.CustomerName = value;
+        }
+        public int PhoneNumber { get => DataPackage.PhoneNumber; set => DataPackage.PhoneNumber = value; }
+        public int CvrNumber { get => DataPackage.CvrNumber; set => DataPackage.CvrNumber = value; }
+        public string Email { get => DataPackage.Email; set => DataPackage.Email = value; }
+        public string ContactName { get => DataPackage.ContactName; set => DataPackage.ContactName = value; }
+        public int ContactPhoneNumber { get => DataPackage.ContactPhoneNumber; set => DataPackage.ContactPhoneNumber = value; }
+        public string ContactEmail { get => DataPackage.ContactEmail; set => DataPackage.ContactEmail = value; }
+        public string Notes { get => DataPackage.Notes; set => DataPackage.Notes = value; }
+        public int CustomerNumber { get => DataPackage.Key; } //no setter!?
         public int Key { get => CustomerNumber; }
 
 

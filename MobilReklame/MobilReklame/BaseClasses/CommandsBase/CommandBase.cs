@@ -9,7 +9,7 @@ namespace MobilReklame
 {
     public abstract class CommandBase<TData, T, TKey> : ICommand
         // where TKey : IKey<TKey>
-        where TData : IKey<TKey>
+        where TData : IKey<TKey>, new()
         where T : IKey<TKey>, new()
     {
         protected MasterDetailsViewModelBase<TData, T, TKey> _viewModel;

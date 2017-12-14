@@ -32,7 +32,7 @@ namespace MobilReklame
 
         public override int NextKey()
         {
-            int nextKey = (int)Data.Keys.Max() + 1;
+            int nextKey = Data.Keys.Count == 0 ? 1 : (int)Data.Keys.Max() + 1;
             return nextKey;
         }
     }

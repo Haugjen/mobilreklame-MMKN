@@ -11,7 +11,7 @@ namespace MobilReklame
 {
     public abstract class MasterDetailsViewModelBase<TData, T, TKey> : INotifyPropertyChanged
     // where TKey : IKey<TKey>
-    where TData : IKey<TKey>
+    where TData : IKey<TKey>, new()
     where T : IKey<TKey>, new()
     {
         #region Instance fields
@@ -33,6 +33,7 @@ namespace MobilReklame
             _catalog = catalog;
             _factory = factory;
             _itemViewModelSelected = null;
+            _dataPackage = new TData();
             _deleteCommand = new DeleteCommandBase<TData, T, TKey>(_catalog, this);
             _createCommand = new CreateCommandBase<TData, T, TKey>(_catalog, this);
             _editCommand = new EditCommandBase<TData, T, TKey>(_catalog, this);
@@ -71,7 +72,7 @@ namespace MobilReklame
         }
         public TData DataPackage {
             get => _dataPackage;
-            set => value = _dataPackage;
+            set => _dataPackage = value;
         }
         protected T Obj { get => _obj; set => _obj = value; }
         #endregion

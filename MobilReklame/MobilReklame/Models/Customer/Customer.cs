@@ -27,15 +27,17 @@ namespace MobilReklame
         #endregion 
 
         #region Properties
-        public string CustomerName { get => _customerName; set => value = _customerName; }
+        public string CustomerName
+        {
+            get => _customerName; set => _customerName = value; }
 
-        public int PhoneNumber { get => _phoneNumber; set => value = _phoneNumber; }
-        public int CvrNumber { get => _cvrNumber; set => value = _cvrNumber; }
-        public string Email { get => _email; set => value = _email; }
-        public string ContactName { get => _contactName; set => value = _contactName; }
-        public int ContactPhoneNumber { get => _contactPhoneNumber; set => value = _contactPhoneNumber; }
-        public string ContactEmail { get => _contactEmail; set => value = _contactEmail; }
-        public string Notes { get => _notes; set => value = _notes; }
+        public int PhoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
+        public int CvrNumber { get => _cvrNumber; set => _cvrNumber = value; }
+        public string Email { get => _email; set =>  _email = value; }
+        public string ContactName { get => _contactName; set => _contactName = value; }
+        public int ContactPhoneNumber { get => _contactPhoneNumber; set => _contactPhoneNumber = value; }
+        public string ContactEmail { get => _contactEmail; set => _contactEmail = value; }
+        public string Notes { get => _notes; set => _notes = value; }
         public int Key
         {
             get => _customerNumber;

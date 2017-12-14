@@ -2,10 +2,14 @@
     x:Class="MobilReklame.Views.CaseCreation"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MobilReklame.Views"
+    xmlns:local="using:MobilReklame.Controllers.ViewModels"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+
+    <Page.DataContext>
+        <local:CombinedMDVM/>
+    </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
@@ -70,7 +74,7 @@
 
             <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-                <TextBox x:Name="CVR_" Style="{StaticResource textboxes}" PlaceholderText="CVR." />
+                <TextBox Text="{Binding CustomerMasterDetailsViewModel.CustomerName, Mode=TwoWay}"  x:Name="CVR_" Style="{StaticResource textboxes}" PlaceholderText="CVR." />
                 <TextBox x:Name="CompanyName" Style="{StaticResource textboxes}" PlaceholderText="Navn"/>
                 <TextBox x:Name="Tlf_nr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
                 <TextBox x:Name="E_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
@@ -115,7 +119,7 @@
                     <SymbolIcon Symbol="Cancel"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="Save" Style="{StaticResource button}">
+            <Button x:Name="Save" Command="{Binding CustomerMasterDetailsViewModel.CreateCommand}" Style="{StaticResource button}">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text=" Gem"/>
                     <SymbolIcon Symbol="Save"/>
