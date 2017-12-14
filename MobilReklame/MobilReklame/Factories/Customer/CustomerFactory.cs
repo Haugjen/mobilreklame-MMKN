@@ -8,7 +8,7 @@ namespace MobilReklame
 {
     public class CustomerFactory : IFactory<Customer, Customer>
     {
-        public Customer Convert(CustomerTDTO obj)
+        public Customer Convert(Customer obj)
         {
             Customer customer = new Customer();
             customer.CustomerName = obj.CustomerName;

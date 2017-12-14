@@ -12,12 +12,7 @@ namespace MobilReklame.Controllers.ViewModels.OrderVM
     public class OrderMDVM : MasterDetailsViewModelBase<Order, Order, int>
     {
         public OrderMDVM()
-            :base (new OrderCatalog(new Factories.TrivialFactory<Order>()), new OrderVMFactory())
-
-
-
-
-
+            :base (OrderCatalog.Instance, new OrderVMFactory())
         {
 
         }

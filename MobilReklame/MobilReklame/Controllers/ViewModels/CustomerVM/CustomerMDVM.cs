@@ -11,7 +11,7 @@ namespace MobilReklame.Controllers.ViewModels.CustomerVM
     {
         
         public CustomerMDVM() 
-            : base(new CustomerCatalog(new Factories.TrivialFactory<Customer>()), new CustomerVMFactory())
+            : base(CustomerCatalog.Instance, new CustomerVMFactory())
         {
             
         }

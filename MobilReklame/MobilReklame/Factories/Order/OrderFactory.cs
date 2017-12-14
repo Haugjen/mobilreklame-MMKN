@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MobilReklame
 {
-    public class OrderFactory : IFactory<Order, OrderTDTO>
+    public class OrderFactory : IFactory<Order, Order>
     {
-        public Order Convert(OrderTDTO obj)
+        public Order Convert(Order obj)
         {
             Order order = new Order();
             order.StartupDate = obj.StartupDate;

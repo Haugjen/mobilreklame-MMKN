@@ -8,12 +8,12 @@ namespace MobilReklame
 {
     public class OrderCatalog : CatalogBase<Order, Order, int>
     {
-        private OrderCatalog _orderCatalog;
+        private static OrderCatalog _orderCatalog;
         private OrderCatalog(IFactory<Order, Order> factory) : base(factory)
         {
         }
 
-        public OrderCatalog instance
+        public static OrderCatalog Instance
         {
             get
             {
@@ -21,7 +21,7 @@ namespace MobilReklame
                 {
                     return _orderCatalog;
                 }
-                _orderCatalog = new OrderCatalog(new OrderFactory());
+                _orderCatalog = new OrderCatalog(new Factories.TrivialFactory<Order>());
                 return _orderCatalog;
             }
         }
@@ -31,8 +31,5 @@ namespace MobilReklame
             int nextKey = (int)Data.Keys.Max() + 1;
             return nextKey;
         }
-
-
-        OrderCatalog test = new OrderCatalog(new OrderFactory());
     }
 }

@@ -123,6 +123,11 @@
     <Compile Include="Controllers\ViewModels\CustomerVM\CustomerIVM.cs" />
     <Compile Include="Controllers\ViewModels\CustomerVM\CustomerMDVM.cs" />
     <Compile Include="Factories\TrivialFactory.cs" />
+    <Compile Include="FilePersistancy\FileSource.cs" />
+    <Compile Include="FilePersistancy\FileStringPersistence.cs" />
+    <Compile Include="FilePersistancy\IStringConverter.cs" />
+    <Compile Include="FilePersistancy\IStringPersistence.cs" />
+    <Compile Include="FilePersistancy\JSONConverter.cs" />
     <Compile Include="Interfaces\ICRUD.cs" />
     <Compile Include="Interfaces\IFactory.cs" />
     <Compile Include="Interfaces\IKey.cs" />
@@ -180,6 +185,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>10.0.3</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
