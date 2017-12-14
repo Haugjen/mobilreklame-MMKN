@@ -17,10 +17,10 @@ namespace MobilReklame
             _factory = factory;
         }
         public List<T> All => _data.Values.ToList();
-        public void Create(TData data)
+        public void Create(TData data, bool index)
         {
             T obj = _factory.Convert(data);
-            _data.Add(NextKey(obj), obj);  // make a keygen method
+            _data.Add(IndexKey(obj), obj);  // make a keygen method
         }
         public void Delete(TKey key)
         {
@@ -33,7 +33,7 @@ namespace MobilReklame
             _data.Add(obj.Key, obj);
         }
 
-        private int NextKey(T obj)
+        private int IndexKey(T obj)
         {
             obj.Key++;
             return obj.Key;
