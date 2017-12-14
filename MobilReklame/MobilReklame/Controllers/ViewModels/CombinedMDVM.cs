@@ -10,11 +10,15 @@ using MobilReklame.Controllers.ViewModels.OrderVM;
 
 namespace MobilReklame.Controllers.ViewModels
 {
-    class CombinedMDVM
+    public class CombinedMDVM
     {
-        public CustomerMDVM customerMDVM = new CustomerMDVM();
-        public OrderMDVM orderMDVM = new OrderMDVM();
+        public CombinedMDVM()
+        {
+            CustomerMasterDetailsViewModel = new CustomerMDVM();
+            OrderMasterDtailsViewModel = new OrderMDVM();
+        }
 
-
+        public CustomerMDVM CustomerMasterDetailsViewModel { get; }
+        public OrderMDVM OrderMasterDtailsViewModel { get; }
     }
 }

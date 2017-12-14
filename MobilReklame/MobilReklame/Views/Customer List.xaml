@@ -36,11 +36,11 @@
                 <Setter Property="MinWidth" Value="85"/>
                 <Setter Property="HorizontalAlignment" Value="center"/>
             </Style>
-            
-            
+
+
         </Grid.Resources>
 
-        <ScrollViewer Grid.Column="1" Grid.Row="1" HorizontalScrollBarVisibility="Visible">
+        <ScrollViewer Grid.Column="1" Grid.Row="1" VerticalScrollBarVisibility="Visible">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
@@ -81,6 +81,7 @@
                     <TextBlock Style="{StaticResource textblocks}" Text="Kontakt tlf nr."/>
                     <TextBlock Style="{StaticResource textblocks}" Text="Kontakt E-mail"/>
                     <TextBlock Style="{StaticResource textblocks}" Text="Noter"/>
+                    <TextBlock Style="{StaticResource textblocks}"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -94,6 +95,7 @@
                     <TextBox x:Name="ContactPhoneNr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
                     <TextBox x:Name="ContactE_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
                     <TextBox x:Name="Notes" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
+                    <TextBlock Style="{StaticResource textblocks}"/>
                 </StackPanel>
             </Grid>
         </ScrollViewer>
@@ -102,68 +104,68 @@
             <Button x:Name="NewCase" Style="{StaticResource TabStyle}" Margin="20,20,0,10" Click="CaseCreation">
                 <SymbolIcon Symbol="Add"/>
             </Button>
-            
+
             <Button x:Name="CaseLiburary" Style="{StaticResource TabStyle}" Margin="20,20,0,10" Click="MainPage">
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF12B;"/>
             </Button>
-            
-            <TextBox x:Name="SearchHere" Margin="10,10,0,0" PlaceholderText="Søg" VerticalAlignment="Center" Width="181" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
-            
+
+            <TextBox x:Name="SearchHere" Margin="10,10,0,0" PlaceholderText="Søg" VerticalAlignment="Center" Width="400" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+
             <Button x:Name="Search" Margin="0,10,0,0" Height="32"  VerticalAlignment="Stretch" Width="40" HorizontalAlignment="Center">
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE71E;"/>
             </Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="LightGray">
-            <ComboBox x:Name="SearchCatagory" PlaceholderText="Sortering" HorizontalAlignment="Center" Margin="100,10,0,0" VerticalAlignment="center" Width="240" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
-            
+            <ComboBox x:Name="SearchCatagory" PlaceholderText="Sortering" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="center" Width="240" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+
             <Button x:Name="Clear" Margin="0,10,0,0" Height="32" VerticalAlignment="Stretch" Width="40" HorizontalAlignment="Center">
                 <SymbolIcon Symbol="Clear"/>
             </Button>
         </StackPanel>
 
-        <ListView x:Name="CaseList" Grid.RowSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="1">
-            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                
-                <Grid.Resources>
-                    <Style TargetType="TextBlock" x:Name="items">
-                        <Setter Property="Margin" Value="0,0,5,0"/>
-                        <Setter Property="FontSize" Value="20"/>
-                    </Style>
-                </Grid.Resources>
-                
-                <StackPanel Orientation="Horizontal" Width="auto">
-                    <TextBlock Text="Kunde navn:" Style="{StaticResource items}"/>
-                    <TextBlock Text="Mobilreklame" Style="{StaticResource items}"/>
-                </StackPanel>
+        <Border Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" BorderBrush="Black" BorderThickness="0,0,0.5,0" Grid.Row="1" Grid.RowSpan="2">
+            <ListView x:Name="CaseList" Grid.RowSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="1">
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
-                <StackPanel Orientation="Horizontal" Grid.Column="1" Width="auto">
-                    <TextBlock Text="CVR nr.:" Style="{StaticResource items}" Margin="20,0,5,0"/>
-                    <TextBlock Text="1234567800000" Style="{StaticResource items}"/>
-                </StackPanel>
-                
-                <StackPanel Orientation="Horizontal" Grid.Row="1">
-                    <TextBlock Text="E-mail:" Style="{StaticResource items}"/>
-                    <TextBlock Text="123mail@hotmail.com" Style="{StaticResource items}"/>
-                </StackPanel>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
-                    <TextBlock Text="Tlf nr.:" Style="{StaticResource items}" Margin="20,0,5,0"/>
-                    <TextBlock Text="12345678" Style="{StaticResource items}"/>
-                </StackPanel>
-            </Grid>
-            
-            
-    </ListView>
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock" x:Name="items">
+                            <Setter Property="Margin" Value="0,0,5,0"/>
+                            <Setter Property="FontSize" Value="20"/>
+                        </Style>
+                    </Grid.Resources>
+
+                    <StackPanel Orientation="Horizontal" Width="auto">
+                        <TextBlock Text="Kunde navn:" Style="{StaticResource items}"/>
+                        <TextBlock Text="Mobilreklame" Style="{StaticResource items}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" Width="auto">
+                        <TextBlock Text="CVR nr.:" Style="{StaticResource items}" Margin="20,0,5,0"/>
+                        <TextBlock Text="1234567800000" Style="{StaticResource items}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="1">
+                        <TextBlock Text="E-mail:" Style="{StaticResource items}"/>
+                        <TextBlock Text="123mail@hotmail.com" Style="{StaticResource items}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
+                        <TextBlock Text="Tlf nr.:" Style="{StaticResource items}" Margin="20,0,5,0"/>
+                        <TextBlock Text="12345678" Style="{StaticResource items}"/>
+                    </StackPanel>
+                </Grid>
+            </ListView>
+        </Border>
 
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" FlowDirection="RightToLeft" Background="LightGray">
             <Button x:Name="Delete" Style="{StaticResource EditDel}" Margin="50,20,10,20">
@@ -172,7 +174,7 @@
                     <SymbolIcon Symbol="Delete"/>
                 </StackPanel>
             </Button>
-            
+
             <Button x:Name="Edit" Style="{StaticResource EditDel}" Margin="10,20,10,20">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text=" Rediger"/>
@@ -181,7 +183,7 @@
             </Button>
 
         </StackPanel>
-        
+
     </Grid>
 </Page>
 

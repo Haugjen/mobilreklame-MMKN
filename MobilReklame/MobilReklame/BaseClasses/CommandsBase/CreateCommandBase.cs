@@ -20,6 +20,7 @@ public class CreateCommandBase<TData, T, TKey> : CommandBase<TData, T, TKey>
         {
             _catalog.Create(_viewModel.DataPackage);
             _viewModel.RefreshItemViewModelCollection();
+            
         }
     }
 }
