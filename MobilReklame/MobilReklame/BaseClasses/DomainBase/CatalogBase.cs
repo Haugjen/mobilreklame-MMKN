@@ -11,6 +11,8 @@ namespace MobilReklame
     {
         private Dictionary<TKey, T> _data;
         private IFactory<T, TData> _factory;
+
+
         protected CatalogBase(IFactory<T, TData> factory)
         {
             _data = new Dictionary<TKey, T>();

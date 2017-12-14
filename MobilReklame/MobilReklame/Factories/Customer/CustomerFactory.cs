@@ -10,15 +10,17 @@ namespace MobilReklame
     {
         public Customer Convert(Customer obj)
         {
-            Customer customer = new Customer();
-            customer.CustomerName = obj.CustomerName;
-            customer.PhoneNumber = obj.PhoneNumber;
-            customer.CvrNumber = obj.CvrNumber;
-            customer.Email = obj.Email;
-            customer.ContactName = obj.ContactName;
-            customer.ContactPhoneNumber = obj.ContactPhoneNumber;
-            customer.ContactEmail = obj.ContactEmail;
-            customer.Notes = obj.Notes;
+            Customer customer = new Customer
+            {
+                CustomerName = obj.CustomerName,
+                PhoneNumber = obj.PhoneNumber,
+                CvrNumber = obj.CvrNumber,
+                Email = obj.Email,
+                ContactName = obj.ContactName,
+                ContactPhoneNumber = obj.ContactPhoneNumber,
+                ContactEmail = obj.ContactEmail,
+                Notes = obj.Notes
+            };
 
             return customer;
         }
