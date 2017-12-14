@@ -17,7 +17,7 @@ namespace MobilReklame
         private int _contactPhoneNumber;
         private string _contactEmail;
         private string _notes;
-        private int _customerNumber;
+        private int _customerNumber;    //used as key
         #endregion
 
         #region Constructor
@@ -49,6 +49,11 @@ namespace MobilReklame
         public int ContactPhoneNumber { get => _contactPhoneNumber; set => value = _contactPhoneNumber; }
         public string ContactEmail { get => _contactEmail; set => value = _contactEmail; }
         public string Notes { get => _notes; set => value = _notes; }
+        public int Key
+        {
+            get => _customerNumber;
+            set => _customerNumber = value;
+        }
         #endregion
 
         #region Methods
@@ -57,21 +62,7 @@ namespace MobilReklame
 
         #endregion
 
-        public int Key
-        {
-            get => _customerNumber;
-            set => _customerNumber = value;  //github not getting this?
-        }
 
-        // to do: more instance fields?
-        // useless comment
-        // useless comment 2
-
-        // to do: make full constructor
-
-        // to do: properties
-
-        //to do: methods
     }
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MobilReklame
 {
-    public class CustomerFactory : IFactory<Customer, CustomerTDTO>
+    public class CustomerFactory : IFactory<Customer, Customer>
     {
         public Customer Convert(CustomerTDTO obj)
         {
