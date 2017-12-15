@@ -5,7 +5,12 @@
     xmlns:local="using:MobilReklame.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:MobilReklame.Controllers.ViewModels"
     mc:Ignorable="d">
+    
+    <Page.DataContext>
+        <viewModels:CombinedMDVM/>
+    </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
@@ -87,21 +92,22 @@
                 <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <TextBlock Style="{StaticResource textblocks}" Text="Kunde information" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28"/>
 
-                    <TextBox x:Name="CVR_" Style="{StaticResource textboxes}" PlaceholderText="CVR." />
-                    <TextBox x:Name="CompanyName" Style="{StaticResource textboxes}" PlaceholderText="Navn"/>
-                    <TextBox x:Name="Tlf_nr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
-                    <TextBox x:Name="E_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
-                    <TextBox x:Name="ContactPerson" Style="{StaticResource textboxes}" PlaceholderText="Navn"/>
-                    <TextBox x:Name="ContactPhoneNr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
-                    <TextBox x:Name="ContactE_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
-                    <TextBox x:Name="Notes" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
+                    <TextBox x:Name="CVR_" Style="{StaticResource textboxes}" PlaceholderText="CVR." Text="{Binding CustomerMasterDetailsViewModel.CvrNumber, Mode=TwoWay}"/>
+                    <TextBox x:Name="CompanyName" Style="{StaticResource textboxes}" PlaceholderText="Navn" Text="{Binding CustomerMasterDetailsViewModel.ContactName, Mode=TwoWay}"/>
+                    <TextBox x:Name="Tlf_nr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer" Text="{Binding CustomerMasterDetailsViewModel.PhoneNumber, Mode=TwoWay}" />
+                    <TextBox x:Name="E_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail" Text="{Binding CustomerMasterDetailsViewModel.Email, Mode=TwoWay}"/>
+                    <TextBox x:Name="ContactPerson" Style="{StaticResource textboxes}" PlaceholderText="Navn" Text="{Binding CustomerMasterDetailsViewModel.ContactName, Mode=TwoWay}"/>
+                    <TextBox x:Name="ContactPhoneNr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer" Text="{Binding CustomerMasterDetailsViewModel.ContactPhoneNumber, Mode=TwoWay}"/>
+                    <TextBox x:Name="ContactE_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail" Text="{Binding CustomerMasterDetailsViewModel.ContactEmail, Mode=TwoWay}"/>
+                    <TextBox x:Name="Notes" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch" Text="{Binding CustomerMasterDetailsViewModel.Notes, Mode=TwoWay}"/>
+
                     <TextBlock Style="{StaticResource textblocks}"/>
                 </StackPanel>
             </Grid>
         </ScrollViewer>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="LightGray">
-            <Button x:Name="NewCase" Style="{StaticResource TabStyle}" Margin="20,20,0,10" Click="CaseCreation">
+            <Button x:Name="NewCase" Style="{StaticResource TabStyle}" Margin="20,20,0,10" Click="CaseCreation" Command="{Binding OrderMasterDtailsViewModel.CreateCommand}">
                 <SymbolIcon Symbol="Add"/>
             </Button>
 
@@ -146,22 +152,22 @@
 
                     <StackPanel Orientation="Horizontal" Width="auto">
                         <TextBlock Text="Kunde navn:" Style="{StaticResource items}"/>
-                        <TextBlock Text="Mobilreklame" Style="{StaticResource items}"/>
+                        <TextBlock Text="{Binding CustomerMasterDetailsViewModel.CustomerName, Mode=TwoWay}" Style="{StaticResource items}"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Grid.Column="1" Width="auto">
                         <TextBlock Text="CVR nr.:" Style="{StaticResource items}" Margin="20,0,5,0"/>
-                        <TextBlock Text="1234567800000" Style="{StaticResource items}"/>
+                        <TextBlock Text="{Binding CustomerMasterDetailsViewModel.CvrNumber, Mode=TwoWay}" Style="{StaticResource items}"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="1">
                         <TextBlock Text="E-mail:" Style="{StaticResource items}"/>
-                        <TextBlock Text="123mail@hotmail.com" Style="{StaticResource items}"/>
+                        <TextBlock Text="{Binding CustomerMasterDetailsViewModel.Email, Mode=TwoWay}" Style="{StaticResource items}"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
                         <TextBlock Text="Tlf nr.:" Style="{StaticResource items}" Margin="20,0,5,0"/>
-                        <TextBlock Text="12345678" Style="{StaticResource items}"/>
+                        <TextBlock Text="{Binding CustomerMasterDetailsViewModel.PhoneNumber, Mode=TwoWay}" Style="{StaticResource items}"/>
                     </StackPanel>
                 </Grid>
             </ListView>

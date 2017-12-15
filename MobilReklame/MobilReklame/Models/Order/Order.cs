@@ -46,25 +46,26 @@ namespace MobilReklame
         #endregion
 
         #region Properties
-        public int OrderNumber { get => _orderNumber; set => value = _orderNumber; }
+        public int OrderNumber { get => _orderNumber; set => _orderNumber = value; }
 
-        public string StartupDate { get => _startupDate; set => value = _startupDate; }
-        public string DeadlineDate { get => _deadlineDate; set => value = _deadlineDate; }
-        public string WorkDescription { get => _workDescription; set => value = _workDescription; }
-        public OrderMaterials OrderMaterials { get => _orderMaterials; set => value = _orderMaterials; }
-        public Customer OrderCustomer { get => _orderCustomer; set => value = _orderCustomer; }
+        public string StartupDate { get => _startupDate; set => _startupDate = value; }
+        public string DeadlineDate { get => _deadlineDate; set => _deadlineDate = value; }
+        public string WorkDescription { get => _workDescription; set => _workDescription = value; }
+        public OrderMaterials OrderMaterials { get => _orderMaterials; set =>_orderMaterials = value; }
+        public Customer OrderCustomer { get => _orderCustomer; set => _orderCustomer = value; }
         #endregion
 
         #region Enumeration Properties
-        public string Description
+        public OrderStatus Description
         {
             get
             {
-                return $"{_orderStatus}";
+                return _orderStatus;
             }
+            set { }
         }
 
-        public int Key { get => _orderNumber; set => value = _orderNumber;}
+        public int Key { get => _orderNumber; set =>_orderNumber = value;}
         #endregion
 
         #region Methods

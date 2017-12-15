@@ -16,6 +16,7 @@ namespace MobilReklame
             order.WorkDescription = obj.WorkDescription;
             order.OrderMaterials = obj.OrderMaterials;
             order.OrderCustomer = obj.OrderCustomer;
+            order.Description = obj.Description;
             return order;
         }
     }

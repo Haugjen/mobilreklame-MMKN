@@ -101,23 +101,23 @@
                 <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <TextBlock Style="{StaticResource textblocks}" Text="Kunde information" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28"/>
 
-                    <TextBox x:Name="CVR_" Style="{StaticResource textboxes}" PlaceholderText="CVR." Text="{Binding }"/>
-                    <TextBox x:Name="CompanyName" Style="{StaticResource textboxes}" PlaceholderText="Navn" Text="{Binding CustomerMasterDetailsViewModel.CvrNumber, Mode=TwoWay}"/>
-                    <TextBox x:Name="Tlf_nr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer"  />
-                    <TextBox x:Name="E_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail" />
-                    <TextBox x:Name="ContactPerson" Style="{StaticResource textboxes}" PlaceholderText="Navn" />
-                    <TextBox x:Name="ContactPhoneNr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
-                    <TextBox x:Name="ContactE_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
-                    <TextBox x:Name="Notes" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch" />
+                    <TextBox x:Name="CVR_" Style="{StaticResource textboxes}" PlaceholderText="CVR." Text="{Binding CustomerMasterDetailsViewModel.CvrNumber, Mode=TwoWay}"/>
+                    <TextBox x:Name="CompanyName" Style="{StaticResource textboxes}" PlaceholderText="Navn" Text="{Binding CustomerMasterDetailsViewModel.ContactName, Mode=TwoWay}"/>
+                    <TextBox x:Name="Tlf_nr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer" Text="{Binding CustomerMasterDetailsViewModel.PhoneNumber, Mode=TwoWay}" />
+                    <TextBox x:Name="E_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail" Text="{Binding CustomerMasterDetailsViewModel.Email, Mode=TwoWay}"/>
+                    <TextBox x:Name="ContactPerson" Style="{StaticResource textboxes}" PlaceholderText="Navn" Text="{Binding CustomerMasterDetailsViewModel.ContactName, Mode=TwoWay}"/>
+                    <TextBox x:Name="ContactPhoneNr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer" Text="{Binding CustomerMasterDetailsViewModel.ContactPhoneNumber, Mode=TwoWay}"/>
+                    <TextBox x:Name="ContactE_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail" Text="{Binding CustomerMasterDetailsViewModel.ContactEmail, Mode=TwoWay}"/>
+                    <TextBox x:Name="Notes" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch" Text="{Binding CustomerMasterDetailsViewModel.Notes, Mode=TwoWay}"/>
 
                     <TextBlock Style="{StaticResource textblocks}" Text="Opgave Information" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28"/>
 
-                    <TextBox x:Name="OrderNumber" Style="{StaticResource textboxes}" />
-                    <DatePicker x:Name="start" DayFormat="day" MonthFormat="month.numeric" YearFormat="year.abbreviated" HorizontalAlignment="Left" Margin="10,25,10,5" IsEnabled="False" />
-                    <DatePicker x:Name="End" DayFormat="day" MonthFormat="month.numeric" YearFormat="year.abbreviated" HorizontalAlignment="Left" Margin="10,25,10,5" IsEnabled="False"/>
-                    <TextBox x:Name="CaseDescription" Style="{StaticResource textboxes}" Text="{}"/>
-                    <TextBox x:Name="CaseMaterials" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
-                    <TextBox x:Name="OrderCustomer" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
+                    <TextBox x:Name="OrderNumber" Style="{StaticResource textboxes}" Text="{Binding OrderMasterDtailsViewModel.OrderNumber, Mode=TwoWay}" />
+                    <DatePicker x:Name="start" DayFormat="day" MonthFormat="month.numeric" YearFormat="year.abbreviated" HorizontalAlignment="Left" Margin="10,25,10,5" IsEnabled="False" Date="{Binding OrderMasterDtailsViewModel.StartupDate, Mode=TwoWay}"/>
+                    <DatePicker x:Name="End" DayFormat="day" MonthFormat="month.numeric" YearFormat="year.abbreviated" HorizontalAlignment="Left" Margin="10,25,10,5" IsEnabled="False" Date="{Binding OrderMasterDtailsViewModel.DeadlineDate, Mode=TwoWay}"/>
+                    <TextBox x:Name="CaseDescription" Style="{StaticResource textboxes}" Text="{Binding OrderMasterDtailsViewModel.WorkDescription}"/>
+                    <TextBox x:Name="CaseMaterials" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch" Text="{Binding OrderMasterDtailsViewModel.OrderMaterials, Mode=TwoWay}"/>
+                    <TextBox x:Name="OrderCustomer" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch" Text="{Binding OrderMasterDtailsViewModel.OrderCustomer, Mode=TwoWay}"/>
                     <TextBlock Style="{StaticResource textblocks}"/>
                 </StackPanel>
             </Grid>
@@ -155,9 +155,10 @@
         </StackPanel>
 
         <Border Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" BorderBrush="Black" BorderThickness="0,0,0.5,0" Grid.Row="1" Grid.RowSpan="2">
-            <ListView x:Name="CaseList" Grid.RowSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="1">
+            <ListView x:Name="CaseList" Grid.RowSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" SelectedItem="{Binding }">
                 <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
@@ -176,23 +177,25 @@
 
                     <StackPanel Orientation="Horizontal" Width="auto">
                         <TextBlock Text="Kunde navn:" Style="{StaticResource items}"/>
-                        <TextBlock Text="Mobilreklame" Style="{StaticResource items}"/>
+                        <TextBlock Text="{Binding CustomerMasterDetailsViewModel.CustomerName}" Style="{StaticResource items}"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Grid.Column="1" Width="auto">
                         <TextBlock Text="CVR nr.:" Style="{StaticResource items}" Margin="20,0,5,0"/>
-                        <TextBlock Text="1234567800000" Style="{StaticResource items}"/>
+                        <TextBlock Text="{Binding CustomerMasterDetailsViewModel.CvrNumber}" Style="{StaticResource items}"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="1">
                         <TextBlock Text="E-mail:" Style="{StaticResource items}"/>
-                        <TextBlock Text="123mail@hotmail.com" Style="{StaticResource items}"/>
+                        <TextBlock Text="{Binding CustomerMasterDetailsViewModel.Email}" Style="{StaticResource items}"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
                         <TextBlock Text="Tlf nr.:" Style="{StaticResource items}" Margin="20,0,5,0"/>
-                        <TextBlock Text="12345678" Style="{StaticResource items}"/>
+                        <TextBlock Text="{Binding CustomerMasterDetailsViewModel.PhoneNumber}" Style="{StaticResource items}"/>
                     </StackPanel>
+                    
+                    <TextBlock Style="{StaticResource items}" Text="{Binding OrderMasterDtailsViewModel.OrderDescription, Mode=TwoWay}" Grid.Row="2"/>
                 </Grid>
             </ListView>
         </Border>
@@ -206,6 +209,13 @@
             </Button>
 
             <Button x:Name="Edit" Style="{StaticResource EditDel}" Margin="10,20,10,20">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text=" Rediger"/>
+                    <SymbolIcon Symbol="Edit"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="AdvState" Style="{StaticResource EditDel}" Margin="10,20,10,20">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text=" Rediger"/>
                     <SymbolIcon Symbol="Edit"/>
