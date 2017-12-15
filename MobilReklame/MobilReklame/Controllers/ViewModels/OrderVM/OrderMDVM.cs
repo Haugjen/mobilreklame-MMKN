@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MobilReklame.Controllers.ViewModels.VMFactories;
-using MobilReklame;
-
+﻿using MobilReklame.Controllers.ViewModels.VMFactories;
 
 namespace MobilReklame.Controllers.ViewModels.OrderVM
 {
     public class OrderMDVM : MasterDetailsViewModelBase<Order, Order, int>
     {
+
         public OrderMDVM()
             :base (OrderCatalog.Instance, new OrderVMFactory())
         {

@@ -28,8 +28,9 @@ namespace MobilReklame.Controllers.ViewModels.CustomerVM
         public int ContactPhoneNumber { get => DataPackage.ContactPhoneNumber; set => DataPackage.ContactPhoneNumber = value; }
         public string ContactEmail { get => DataPackage.ContactEmail; set => DataPackage.ContactEmail = value; }
         public string Notes { get => DataPackage.Notes; set => DataPackage.Notes = value; }
-        public int CustomerNumber { get => DataPackage.Key; } //no setter!?
+        public int CustomerNumber { get => DataPackage.Key; }
         public int Key { get => CustomerNumber; }
+
 
 
     }

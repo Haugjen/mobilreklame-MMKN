@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MobilReklame.FilePersistancy;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace MobilReklame
     public class OrderCatalog : CatalogBase<Order, Order, int>
     {
         private static OrderCatalog _orderCatalog;
+
         private OrderCatalog(IFactory<Order, Order> factory) : base(factory)
         {
         }
@@ -28,8 +30,10 @@ namespace MobilReklame
      
         public override int NextKey()
         {
-            int nextKey = (int)Data.Keys.Max() + 1;
+            int nextKey = Data.Keys.Count == 0 ? 1 : (int)Data.Keys.Max() + 1;
             return nextKey;
         }
+
+        
     }
 }

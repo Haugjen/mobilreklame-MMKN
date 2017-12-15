@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MobilReklame
 {
-    class OrderCreateCmd : CreateCommandBase<CustomerTDTO, Customer, int>
+    class OrderCreateCmd : CreateCommandBase<OrderTDTO, Order, int>
     {
-        public OrderCreateCmd(CatalogBase<CustomerTDTO, Customer, int> catalog, MasterDetailsViewModelBase<CustomerTDTO, Customer, int> viewModel) : base(catalog, viewModel)
+        public OrderCreateCmd(CatalogBase<OrderTDTO, Order, int> catalog, MasterDetailsViewModelBase<OrderTDTO, Order, int> viewModel) : base(catalog, viewModel)
         {
         }
     }
