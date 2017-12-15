@@ -155,7 +155,9 @@
         </StackPanel>
 
         <Border Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" BorderBrush="Black" BorderThickness="0,0,0.5,0" Grid.Row="1" Grid.RowSpan="2">
-            <ListView x:Name="CaseList" Grid.RowSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" ItemsSource="{Binding OrderMasterDtailsViewModel.ItemViewModelCollection, Mode=TwoWay}">
+            <ListView x:Name="CaseList" Grid.RowSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" ItemsSource="{Binding OrderMasterDtailsViewModel.ItemViewModelCollection}" 
+                      SelectedItem="{Binding OrderMasterDtailsViewModel.ItemViewModelSelected, Mode=TwoWay}">
+                
                 <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -195,7 +197,7 @@
                         <TextBlock Text="{Binding CustomerMasterDetailsViewModel.PhoneNumber, Mode=TwoWay}" Style="{StaticResource items}"/>
                     </StackPanel>
                     
-                    <TextBlock Style="{StaticResource items}" Text="{Binding OrderMasterDtailsViewModel.OrderDescription, Mode=TwoWay}" Grid.Row="2"/>
+                    <TextBlock Style="{StaticResource items}" Text="{Binding OrderMasterDtailsViewModel.OrderStatus, Mode=TwoWay}" Grid.Row="2"/>
                 </Grid>
             </ListView>
         </Border>
@@ -215,12 +217,11 @@
                 </StackPanel>
             </Button>
 
-            <Button x:Name="AdvState" Style="{StaticResource EditDel}" Margin="10,20,10,20">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text=" Rediger"/>
-                    <SymbolIcon Symbol="Edit"/>
-                </StackPanel>
-            </Button>
+
+            <ComboBox ItemsSource="{Binding OrderMasterDtailsViewModel.OrderStatusList}" SelectedItem="{Binding OrderMasterDtailsViewModel.OrderStatus, Mode=TwoWay}" 
+                      HorizontalAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center" Width="240" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" 
+                      FlowDirection="LeftToRight" PlaceholderText="Sags Stadie"/>
+            
         </StackPanel>
     </Grid>
 </Page>

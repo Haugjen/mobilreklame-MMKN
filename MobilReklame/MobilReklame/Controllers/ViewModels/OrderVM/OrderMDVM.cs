@@ -1,4 +1,5 @@
-﻿using MobilReklame.Controllers.ViewModels.VMFactories;
+﻿using System.Collections.Generic;
+using MobilReklame.Controllers.ViewModels.VMFactories;
 
 namespace MobilReklame.Controllers.ViewModels.OrderVM
 {
@@ -17,15 +18,9 @@ namespace MobilReklame.Controllers.ViewModels.OrderVM
         public string WorkDescription { get => DataPackage.WorkDescription; set => DataPackage.WorkDescription = value; }
         public OrderMaterials OrderMaterials { get => DataPackage.OrderMaterials; set => DataPackage.OrderMaterials = value; }
         public Customer OrderCustomer { get => DataPackage.OrderCustomer; set => DataPackage.OrderCustomer = value; }
-        public string OrderDescription
-        {
-            get { return $"Opgavens stadie er: {DataPackage.Description.ToString()}"; }
-        }
+        public List<string> OrderStatusList { get { return DataPackage.OrderStatusList; }}
+        public string OrderStatus { get { return DataPackage.OrderStatus; } set { DataPackage.OrderStatus = value; }  }
 
-        public void Advstadie()
-        {
-            
-        }
         
 
         public int Key { get; set; }
