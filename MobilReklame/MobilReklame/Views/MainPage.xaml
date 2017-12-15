@@ -177,22 +177,22 @@
 
                     <StackPanel Orientation="Horizontal" Width="auto">
                         <TextBlock Text="Kunde navn:" Style="{StaticResource items}"/>
-                        <TextBlock Text="{Binding CustomerMasterDetailsViewModel.CustomerName}" Style="{StaticResource items}"/>
+                        <TextBlock Text="{Binding CustomerMasterDetailsViewModel.CustomerName, Mode=TwoWay}" Style="{StaticResource items}"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Grid.Column="1" Width="auto">
                         <TextBlock Text="CVR nr.:" Style="{StaticResource items}" Margin="20,0,5,0"/>
-                        <TextBlock Text="{Binding CustomerMasterDetailsViewModel.CvrNumber}" Style="{StaticResource items}"/>
+                        <TextBlock Text="{Binding CustomerMasterDetailsViewModel.CvrNumber, Mode=TwoWay}" Style="{StaticResource items}"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="1">
                         <TextBlock Text="E-mail:" Style="{StaticResource items}"/>
-                        <TextBlock Text="{Binding CustomerMasterDetailsViewModel.Email}" Style="{StaticResource items}"/>
+                        <TextBlock Text="{Binding CustomerMasterDetailsViewModel.Email, Mode=TwoWay}" Style="{StaticResource items}"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
                         <TextBlock Text="Tlf nr.:" Style="{StaticResource items}" Margin="20,0,5,0"/>
-                        <TextBlock Text="{Binding CustomerMasterDetailsViewModel.PhoneNumber}" Style="{StaticResource items}"/>
+                        <TextBlock Text="{Binding CustomerMasterDetailsViewModel.PhoneNumber, Mode=TwoWay}" Style="{StaticResource items}"/>
                     </StackPanel>
                     
                     <TextBlock Style="{StaticResource items}" Text="{Binding OrderMasterDtailsViewModel.OrderDescription, Mode=TwoWay}" Grid.Row="2"/>

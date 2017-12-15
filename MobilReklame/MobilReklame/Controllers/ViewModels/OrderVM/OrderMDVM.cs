@@ -25,10 +25,15 @@ namespace MobilReklame.Controllers.ViewModels.OrderVM
         public Customer OrderCustomer { get => DataPackage.OrderCustomer; set => DataPackage.OrderCustomer = value; }
         public string OrderDescription
         {
-            get => DataPackage.Description.ToString();
+            get { return $"Opgavens stadie er: {DataPackage.Description.ToString()}"; }
+        }
+
+        public void Advstadie()
+        {
             
         }
         
+
         public int Key { get; set; }
     }
 }
