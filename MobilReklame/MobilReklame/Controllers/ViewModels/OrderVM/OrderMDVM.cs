@@ -23,6 +23,12 @@ namespace MobilReklame.Controllers.ViewModels.OrderVM
         public string WorkDescription { get => DataPackage.WorkDescription; set => DataPackage.WorkDescription = value; }
         public OrderMaterials OrderMaterials { get => DataPackage.OrderMaterials; set => DataPackage.OrderMaterials = value; }
         public Customer OrderCustomer { get => DataPackage.OrderCustomer; set => DataPackage.OrderCustomer = value; }
+        public string OrderDescription
+        {
+            get => DataPackage.Description.ToString();
+            
+        }
+        
         public int Key { get; set; }
     }
 }

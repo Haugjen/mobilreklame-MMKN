@@ -57,14 +57,13 @@ namespace MobilReklame
         #endregion
 
         #region Enumeration Properties
-        public string Description
+        public OrderStatus Description
         {
             get
             {
-                return $"{_orderStatus}";
+                return _orderStatus;
             }
-
-            
+            set { }
         }
 
         public int Key { get => _orderNumber; set =>_orderNumber = value;}

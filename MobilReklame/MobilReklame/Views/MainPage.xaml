@@ -195,7 +195,7 @@
                         <TextBlock Text="{Binding CustomerMasterDetailsViewModel.PhoneNumber}" Style="{StaticResource items}"/>
                     </StackPanel>
                     
-                    <TextBlock Style="{StaticResource items}" Text="123456789" Grid.Row="2"/>
+                    <TextBlock Style="{StaticResource items}" Text="{Binding OrderMasterDtailsViewModel.OrderDescription, Mode=TwoWay}" Grid.Row="2"/>
                 </Grid>
             </ListView>
         </Border>
