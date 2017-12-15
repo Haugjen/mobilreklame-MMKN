@@ -27,12 +27,12 @@ namespace MobilReklame
 
         public Dictionary<TKey, T> Data => _data;
 
-        public FileSource<T, TKey> DataSource { get => _dataSource; set => _dataSource = value; }
-
         public void Create(TData data)
         {
             T obj = _factory.Convert(data);
-            _data.Add(NextKey(), obj);
+            TKey newKey = NextKey();
+            obj.Key = newKey;
+            _data.Add(newKey, obj);
             Save();
         }
         public void Delete(TKey key)
