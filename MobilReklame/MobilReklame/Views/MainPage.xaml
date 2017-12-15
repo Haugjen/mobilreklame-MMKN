@@ -155,7 +155,7 @@
         </StackPanel>
 
         <Border Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" BorderBrush="Black" BorderThickness="0,0,0.5,0" Grid.Row="1" Grid.RowSpan="2">
-            <ListView x:Name="CaseList" Grid.RowSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" ItemsSource="{Binding OrderMasterDtailsViewModel.ItemViewModelCollection}" 
+            <ListView x:Name="CaseList" Grid.RowSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" ItemsSource="{Binding OrderMasterDtailsViewModel.ItemViewModelCollection, Mode=TwoWay}" 
                       SelectedItem="{Binding OrderMasterDtailsViewModel.ItemViewModelSelected, Mode=TwoWay}">
                 
                 <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">

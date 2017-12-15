@@ -120,7 +120,7 @@
                     <SymbolIcon Symbol="Cancel"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="Save" Command="{Binding CustomerMasterDetailsViewModel.CreateCommand}" Style="{StaticResource button}" Click="MainPage">
+            <Button x:Name="Save" Command="{Binding CombinedCreate}" Style="{StaticResource button}" Click="MainPage">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text=" Gem"/>
                     <SymbolIcon Symbol="Save"/>
