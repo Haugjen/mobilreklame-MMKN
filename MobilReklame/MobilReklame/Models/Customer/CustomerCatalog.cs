@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MobilReklame.FilePersistancy;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,13 @@ namespace MobilReklame
     {
         
         private static CustomerCatalog _customerCatalog;
+        private FileSource<Customer, int> _dataSource;
+
         private CustomerCatalog(IFactory<Customer, Customer> factory) : base(factory)
         {
-
+            _dataSource = new FileSource<Customer, int>(new FileStringPersistence(), new JSONConverter<Customer>());
         }
-
-
+        
         public static CustomerCatalog Instance
         {
             get

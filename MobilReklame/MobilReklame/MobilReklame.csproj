@@ -106,9 +106,11 @@
     <Compile Include="Controllers\Commands\CustomerCmd\CustomerCreateCmd.cs" />
     <Compile Include="Controllers\Commands\CustomerCmd\CustomerDeleteCmd.cs" />
     <Compile Include="Controllers\Commands\CustomerCmd\CustomerEditCmd.cs" />
+    <Compile Include="Controllers\Commands\CustomerCmd\CustomerSaveCmd.cs" />
     <Compile Include="Controllers\Commands\OrderCmd\OrderCreateCmd.cs" />
     <Compile Include="Controllers\Commands\OrderCmd\OrderDeleteCmd.cs" />
     <Compile Include="Controllers\Commands\OrderCmd\OrderEditCmd.cs" />
+    <Compile Include="Controllers\Commands\OrderCmd\OrderSaveCmd.cs" />
     <Compile Include="Controllers\ViewModels\CombinedMDVM.cs" />
     <Compile Include="Controllers\ViewModels\OrderVM\OrderIVM.cs" />
     <Compile Include="Controllers\ViewModels\OrderVM\OrderMDVM.cs" />

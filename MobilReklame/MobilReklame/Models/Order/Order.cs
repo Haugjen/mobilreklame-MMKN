@@ -29,7 +29,6 @@ namespace MobilReklame
         #region Constructor
         public Order()
         {
-
             // former parameters :: string startupDate, string deadlineDate, string workDescription, OrderMaterials orderMaterials, Customer orderCustomer
             //_startupDate = startupDate;
             //_deadlineDate = deadlineDate;
