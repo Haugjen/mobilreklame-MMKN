@@ -10,11 +10,9 @@ namespace MobilReklame
     public class OrderCatalog : CatalogBase<Order, Order, int>
     {
         private static OrderCatalog _orderCatalog;
-        private FileSource<Order, int> _dataSource;
 
         private OrderCatalog(IFactory<Order, Order> factory) : base(factory)
         {
-            _dataSource = new FileSource<Order, int>(new FileStringPersistence(), new JSONConverter<Order>());
         }
 
         public static OrderCatalog Instance
@@ -36,9 +34,6 @@ namespace MobilReklame
             return nextKey;
         }
 
-        public async void Save()
-        {
-            await _dataSource.Save(Data);
-        }
+        
     }
 }

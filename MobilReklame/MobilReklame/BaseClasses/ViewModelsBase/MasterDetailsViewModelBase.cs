@@ -37,6 +37,7 @@ namespace MobilReklame
             _deleteCommand = new DeleteCommandBase<TData, T, TKey>(_catalog, this);
             _createCommand = new CreateCommandBase<TData, T, TKey>(_catalog, this);
             _editCommand = new EditCommandBase<TData, T, TKey>(_catalog, this);
+            _catalog.Load();
         }
         #endregion
         #region Properties for Data Binding

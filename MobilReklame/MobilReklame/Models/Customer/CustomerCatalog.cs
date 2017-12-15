@@ -9,13 +9,11 @@ namespace MobilReklame
 {
     public class CustomerCatalog : CatalogBase<Customer, Customer, int>
     {
-        
+
         private static CustomerCatalog _customerCatalog;
-        private FileSource<Customer, int> _dataSource;
 
         private CustomerCatalog(IFactory<Customer, Customer> factory) : base(factory)
         {
-            _dataSource = new FileSource<Customer, int>(new FileStringPersistence(), new JSONConverter<Customer>());
         }
         
         public static CustomerCatalog Instance
