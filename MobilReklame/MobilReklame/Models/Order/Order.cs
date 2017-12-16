@@ -22,7 +22,7 @@ namespace MobilReklame
         private string _workDescription;
         private OrderMaterials _orderMaterials;
         private Customer _orderCustomer;
-        private string _orderStatus;
+        private string _orderStatus = "Ny Oprettede";
         private List<string> _orderStatusList;
         #endregion
 

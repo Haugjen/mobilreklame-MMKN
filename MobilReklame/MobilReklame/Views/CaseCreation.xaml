@@ -74,8 +74,7 @@
 
             <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-                <TextBox x:Name="CVR_" Style="{StaticResource textboxes}" PlaceholderText="CVR.">
-                </TextBox>
+                <TextBox Text="{Binding CustomerMasterDetailsViewModel.CvrNumber, Mode=TwoWay}" x:Name="CVR_" Style="{StaticResource textboxes}" PlaceholderText="CVR."/>
                 <TextBox Text="{Binding CustomerMasterDetailsViewModel.CustomerName, Mode=TwoWay}" x:Name="CompanyName" Style="{StaticResource textboxes}" PlaceholderText="Navn"/>
                 <TextBox Text="{Binding CustomerMasterDetailsViewModel.PhoneNumber, Mode=TwoWay}" x:Name="Tlf_nr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
                 <TextBox Text="{Binding CustomerMasterDetailsViewModel.Email, Mode=TwoWay}" x:Name="E_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
