@@ -1,4 +1,4 @@
-﻿namespace MobilReklame.Controllers.ViewModels.CustomerVM
+﻿namespace MobilReklame
 {
     public class CustomerIVM : ItemViewModelBase<Customer, int>
     {

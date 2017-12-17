@@ -66,7 +66,7 @@ namespace MobilReklame
             set
             {
                 _itemViewModelSelected = value;
-                _deleteCommand.RaiseCanExecuteChanged();
+               _deleteCommand.RaiseCanExecuteChanged();
                 _editCommand.RaiseCanExecuteChanged();
                 OnPropertyChanged();
             }
