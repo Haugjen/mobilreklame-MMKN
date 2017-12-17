@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MobilReklame;
+using MobilReklame.Controllers.ViewModels.CustomerVM;
 
 namespace MobilReklame.Controllers.ViewModels.VMFactories
 {

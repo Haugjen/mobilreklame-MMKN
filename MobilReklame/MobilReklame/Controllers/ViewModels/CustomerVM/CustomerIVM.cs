@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MobilReklame
+﻿namespace MobilReklame.Controllers.ViewModels.CustomerVM
 {
     public class CustomerIVM : ItemViewModelBase<Customer, int>
     {

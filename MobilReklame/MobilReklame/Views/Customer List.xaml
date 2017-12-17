@@ -5,11 +5,11 @@
     xmlns:local="using:MobilReklame.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModels="using:MobilReklame.Controllers.ViewModels"
+    xmlns:customerVm="using:MobilReklame.Controllers.ViewModels.CustomerVM"
     mc:Ignorable="d">
     
     <Page.DataContext>
-        <viewModels:CombinedMDVM/>
+        <customerVm:CustomerMDVM/>
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -131,7 +131,9 @@
         </StackPanel>
 
         <Border Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" BorderBrush="Black" BorderThickness="0,0,0.5,0" Grid.Row="1" Grid.RowSpan="2">
-            <ListView x:Name="CaseList" Grid.RowSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="1">
+            <ListView x:Name="CaseList" Grid.RowSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="1" ItemsSource="{Binding ItemViewModelCollection}" SelectedItem="{Binding ItemViewModelsSelected, Mode=TwoWay}">
+                <ListView.Template>
+                    <DataTemplate>
                 <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -170,6 +172,8 @@
                         <TextBlock Text="{Binding CustomerMasterDetailsViewModel.PhoneNumber, Mode=TwoWay}" Style="{StaticResource items}"/>
                     </StackPanel>
                 </Grid>
+                    </DataTemplate>
+                </ListView.Template>
             </ListView>
         </Border>
 
