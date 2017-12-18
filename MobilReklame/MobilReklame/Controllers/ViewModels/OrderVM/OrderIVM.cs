@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MobilReklame
+﻿namespace MobilReklame
 {
     class OrderIVM : ItemViewModelBase<Order, int>
     {
@@ -17,7 +11,7 @@ namespace MobilReklame
         public string DeadlineDate { get => Obj.DeadlineDate; set => Obj.DeadlineDate = value; }
         public string WorkDescription { get => Obj.WorkDescription; set => Obj.WorkDescription = value; }
         public OrderMaterials OrderMaterials { get => Obj.OrderMaterials; set => Obj.OrderMaterials = value; }
-        public Customer OrderCustomer { get => Obj.OrderCustomer; set => Obj.OrderCustomer = value; } // no setter!?
+        public Customer OrderCustomer { get => Obj.OrderCustomer; set => Obj.OrderCustomer = value; }
         public int Key { get; set; }
     }
 }

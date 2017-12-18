@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MobilReklame;
 
 namespace MobilReklame.FilePersistancy
 {
@@ -14,7 +15,9 @@ namespace MobilReklame.FilePersistancy
     /// <typeparam name="T">
     /// Type of objects to load/save.
     /// </typeparam>
-    public class FileSource<T>
+    public class FileSource<T, TKey>
+        where T : IKey<TKey>
+
     {
         private string _fileName;
         private IStringPersistence _stringPersistence;
@@ -32,16 +35,40 @@ namespace MobilReklame.FilePersistancy
             _fileName = typeof(T).Name + fileSuffix;
         }
 
+
+        public List<T> ListFromDictionary(Dictionary<TKey, T> dictionary)
+        {
+            List<T> list = new List<T>();
+            foreach (var item in dictionary)
+            {
+                list.Add(item.Value);
+            }
+            return list;
+        }
+
+        public Dictionary<TKey, T> DictionaryFromList(List<T> list)
+        {
+            Dictionary<TKey, T> dictionary = new Dictionary<TKey, T>();
+            foreach (var item in list)
+            {
+                dictionary.Add(item.Key, item);
+            }
+            return dictionary;
+        }
+
         /// <summary>
         /// Loads objects from file
         /// </summary>
         /// <returns>
         /// List of loaded objects, wrapped in an awaitable Task.
         /// </returns>
-        public async Task<List<T>> Load()
+        /// 
+
+        public async Task<Dictionary<TKey, T>> Load()
         {
             string data = await _stringPersistence.LoadAsync(_fileName);
-            return _stringConverter.ConvertFromString(data);
+            List<T> list= _stringConverter.ConvertFromString(data);
+            return DictionaryFromList(list);
         }
 
         /// <summary>
@@ -50,9 +77,10 @@ namespace MobilReklame.FilePersistancy
         /// <param name="objects">
         /// List of objects to save
         /// </param>
-        public Task Save(List<T> objects)
+        public Task Save(Dictionary<TKey, T> objects)
         {
-            string data = _stringConverter.ConvertToString(objects);
+            List<T> list = ListFromDictionary(objects);
+            string data = _stringConverter.ConvertToString(list);
             return _stringPersistence.SaveAsync(_fileName, data);
         }
     }

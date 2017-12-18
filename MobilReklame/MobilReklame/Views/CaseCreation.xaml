@@ -74,14 +74,14 @@
 
             <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-                <TextBox Text="{Binding CustomerMasterDetailsViewModel.CustomerName, Mode=TwoWay}"  x:Name="CVR_" Style="{StaticResource textboxes}" PlaceholderText="CVR." />
-                <TextBox x:Name="CompanyName" Style="{StaticResource textboxes}" PlaceholderText="Navn"/>
-                <TextBox x:Name="Tlf_nr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
-                <TextBox x:Name="E_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
-                <TextBox x:Name="ContactPerson" Style="{StaticResource textboxes}" PlaceholderText="Navn"/>
-                <TextBox x:Name="ContactPhoneNr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
-                <TextBox x:Name="ContactE_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
-                <TextBox x:Name="Notes" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
+                <TextBox Text="{Binding CustomerMasterDetailsViewModel.CvrNumber, Mode=TwoWay}" x:Name="CVR_" Style="{StaticResource textboxes}" PlaceholderText="CVR."/>
+                <TextBox Text="{Binding CustomerMasterDetailsViewModel.CustomerName, Mode=TwoWay}" x:Name="CompanyName" Style="{StaticResource textboxes}" PlaceholderText="Navn"/>
+                <TextBox Text="{Binding CustomerMasterDetailsViewModel.PhoneNumber, Mode=TwoWay}" x:Name="Tlf_nr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
+                <TextBox Text="{Binding CustomerMasterDetailsViewModel.Email, Mode=TwoWay}" x:Name="E_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
+                <TextBox Text="{Binding CustomerMasterDetailsViewModel.ContactName, Mode=TwoWay}" x:Name="ContactPerson" Style="{StaticResource textboxes}" PlaceholderText="Navn"/>
+                <TextBox Text="{Binding CustomerMasterDetailsViewModel.ContactPhoneNumber, Mode=TwoWay}" x:Name="ContactPhoneNr_" Style="{StaticResource textboxes}" PlaceholderText="Nummer"/>
+                <TextBox Text="{Binding CustomerMasterDetailsViewModel.ContactEmail, Mode=TwoWay}" x:Name="ContactE_mail" Style="{StaticResource textboxes}" PlaceholderText="E-mail"/>
+                <TextBox Text="{Binding CustomerMasterDetailsViewModel.Notes, Mode=TwoWay}" x:Name="Notes" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
             </StackPanel>
 
             <StackPanel Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -94,12 +94,12 @@
             </StackPanel>
 
             <StackPanel Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <TextBox x:Name="OrderNumber" Style="{StaticResource textboxes}" IsEnabled="False"/>
-                <DatePicker x:Name="start" DayFormat="day" MonthFormat="month.numeric" YearFormat="year.abbreviated" HorizontalAlignment="Left" Margin="10,25,10,5"/>
-                <DatePicker x:Name="End" DayFormat="day" MonthFormat="month.numeric" YearFormat="year.abbreviated" HorizontalAlignment="Left" Margin="10,25,10,5"/>
-                <TextBox x:Name="OrderCustomer" Style="{StaticResource textboxes}"/>
-                <TextBox x:Name="CaseDescription" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
-                <TextBox x:Name="CaseMaterials" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
+                <TextBox Text="{Binding OrderMasterDtailsViewModel.OrderNumber, Mode=TwoWay}" x:Name="OrderNumber" Style="{StaticResource textboxes}" IsEnabled="False"/>
+                <DatePicker Date="{Binding OrderMasterDtailsViewModel.DeadlineDate, Mode=TwoWay}" x:Name="start" DayFormat="day" MonthFormat="month.numeric" YearFormat="year.abbreviated" HorizontalAlignment="Left" Margin="10,25,10,5"/>
+                <DatePicker Date="{Binding OrderMasterDtailsViewModel.StartupDate, Mode=TwoWay}" x:Name="End" DayFormat="day" MonthFormat="month.numeric" YearFormat="year.abbreviated" HorizontalAlignment="Left" Margin="10,25,10,5"/>
+                <TextBox Text="{Binding OrderMasterDtailsViewModel.OrderCustomer, Mode=TwoWay}" x:Name="OrderCustomer" Style="{StaticResource textboxes}"/>
+                <TextBox Text="{Binding OrderMasterDtailsViewModel.WorkDescription, Mode=TwoWay}" x:Name="CaseDescription" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
+                <TextBox Text="{Binding OrderMasterDtailsViewModel.OrderMaterials, Mode=TwoWay}" x:Name="CaseMaterials" Style="{StaticResource textboxes}" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Noter" Height="100" VerticalAlignment="Stretch"/>
             </StackPanel>
         </Grid>
 
@@ -119,7 +119,7 @@
                     <SymbolIcon Symbol="Cancel"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="Save" Command="{Binding CustomerMasterDetailsViewModel.CreateCommand}" Style="{StaticResource button}">
+            <Button x:Name="Save" Command="{Binding CombinedCreate}" Style="{StaticResource button}" Click="MainPage">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text=" Gem"/>
                     <SymbolIcon Symbol="Save"/>

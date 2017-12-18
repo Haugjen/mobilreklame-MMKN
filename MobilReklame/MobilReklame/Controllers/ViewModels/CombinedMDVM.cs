@@ -12,6 +12,7 @@ namespace MobilReklame.Controllers.ViewModels
 {
     public class CombinedMDVM
     {
+
         public CombinedMDVM()
         {
             CustomerMasterDetailsViewModel = new CustomerMDVM();
@@ -20,5 +21,19 @@ namespace MobilReklame.Controllers.ViewModels
 
         public CustomerMDVM CustomerMasterDetailsViewModel { get; }
         public OrderMDVM OrderMasterDtailsViewModel { get; }
+
+        public ICommand CombinedCreate
+        {
+            get
+            {
+                OrderCatalog.Instance.Create(OrderMasterDtailsViewModel.DataPackage);
+                OrderMasterDtailsViewModel.RefreshItemViewModelCollection();
+                return CustomerMasterDetailsViewModel.CreateCommand;
+            }
+        }
+
+
+
+
     }
 }

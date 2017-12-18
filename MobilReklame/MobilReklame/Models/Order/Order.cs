@@ -10,8 +10,10 @@ namespace MobilReklame
     public class Order : IKey<int>
     {
         #region Enumeration
-        public enum OrderStatus { Request, Offer, AktiveStatus, Finished, Invoiced, AktiveRed1, ActiveRed2, ActiveYellow, ActiveGreen }
+        //public enum OrderStatus { Request, Offer, AktiveStatus, Finished, Invoiced, AktiveRed1, ActiveRed2, ActiveYellow, ActiveGreen }
         #endregion
+        
+
 
         #region Instance field
         private int _orderNumber;
@@ -20,52 +22,40 @@ namespace MobilReklame
         private string _workDescription;
         private OrderMaterials _orderMaterials;
         private Customer _orderCustomer;
+        private string _orderStatus = "Ny Oprettede";
+        private List<string> _orderStatusList;
         #endregion
 
         #region Enumeration Instance field
-        private OrderStatus _orderStatus;
+       // private OrderStatus _orderStatus;
         #endregion
 
         #region Constructor
         public Order()
         {
-
-            // former parameters :: string startupDate, string deadlineDate, string workDescription, OrderMaterials orderMaterials, Customer orderCustomer
-            //_startupDate = startupDate;
-            //_deadlineDate = deadlineDate;
-            //_workDescription = workDescription;
-            //_orderMaterials = orderMaterials;
-            //_orderCustomer = orderCustomer;
-        }
-        #endregion
-
-        #region Enumeration Constructor
-        public Order(OrderStatus orderStatus)
-        {
-            _orderStatus = orderStatus;
+            _orderStatusList = new List<string>();
+            _orderStatusList.Add("Ny Oprettede");
+            _orderStatusList.Add("Tilbud");
+            _orderStatusList.Add("Aktiv");
+            _orderStatusList.Add("Afsluttet");
         }
         #endregion
 
         #region Properties
-        public int OrderNumber { get => _orderNumber; set => value = _orderNumber; }
+        public int OrderNumber { get => _orderNumber; set => _orderNumber = value; }
 
-        public string StartupDate { get => _startupDate; set => value = _startupDate; }
-        public string DeadlineDate { get => _deadlineDate; set => value = _deadlineDate; }
-        public string WorkDescription { get => _workDescription; set => value = _workDescription; }
-        public OrderMaterials OrderMaterials { get => _orderMaterials; set => value = _orderMaterials; }
-        public Customer OrderCustomer { get => _orderCustomer; set => value = _orderCustomer; }
-        #endregion
+        public string StartupDate { get => _startupDate; set => _startupDate = value; }
+        public string DeadlineDate { get => _deadlineDate; set => _deadlineDate = value; }
+        public string WorkDescription { get => _workDescription; set => _workDescription = value; }
+        public OrderMaterials OrderMaterials { get => _orderMaterials; set =>_orderMaterials = value; }
+        public Customer OrderCustomer { get => _orderCustomer; set => _orderCustomer = value; }
+        public List<string> OrderStatusList { get => _orderStatusList; }
+        public string OrderStatus { get => _orderStatus ; set => _orderStatus = value; }
+        
 
-        #region Enumeration Properties
-        public string Description
-        {
-            get
-            {
-                return $"{_orderStatus}";
-            }
-        }
 
-        public int Key { get => _orderNumber; set => value = _orderNumber;}
+
+        public int Key { get => _orderNumber; set =>_orderNumber = value;}
         #endregion
 
         #region Methods
